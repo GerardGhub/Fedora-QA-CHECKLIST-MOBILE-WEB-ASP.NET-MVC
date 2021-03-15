@@ -1,0 +1,28 @@
+.loginbuttonmain{
+
+    background-color:red;
+}
+
+.lblUsername{
+    font-size:15px;
+}
+.lblPassword{
+    font-size:15px;
+
+}
+.myheaderTitle {
+    background-color: #3C8DBC;
+    font-family: Georgia, serif;
+
+}
+
+.edittextBoxBorder {
+    border-radius: 50px;
+    background-color: #3c8dbc;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+
