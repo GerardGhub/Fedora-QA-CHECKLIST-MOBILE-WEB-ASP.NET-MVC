@@ -267,7 +267,7 @@
 
                                        <td>  Expected Delivery</td>
                                       <td>                       
-                                       <%: Html.TextBoxFor(model => model.stacking_level, new { @class = "form-control requiredfilled", @placeholder="Expected Delivery",@required ="true",@id="expected",@autocomplete="off",@maxlength="15",@Style="background-color:white",@Readonly="true"}) %>
+                                       <%: Html.TextBoxFor(model => model.stacking_level, new { @class = "form-control requiredfilled", @placeholder="Expected Delivery",@required ="true",@id="expected",@autocomplete="off",@maxlength="15",@Style="background-color:yellow"}) %>
 <%--                                      <%: Html.TextBoxFor(model => model.stacking_level, new { @class = "form-control requiredfilled number-separator", @placeholder="Expected Delivery",@required ="true",@id="expected",@autocomplete="off",@maxlength="15"}) %>--%>
                                           
                                           <%: Html.ValidationMessageFor(model => model.stacking_level, "", new { @class = "text-danger" }) %>
@@ -2223,7 +2223,7 @@
                 $("#net_weight").val(Number($("#gross_weight").val()) - Number($("#tare_weight").val()));
 
                 $("#ActualDelivered").val(Number($("#net_weight").val()) * 1);
-                $("#expected").val(Number($("#num1").val()) * 1);
+                //$("#expected").val(Number($("#num1").val()) * 1); allis muna 4/6/2021
             }
         });
 
@@ -2359,26 +2359,43 @@
                 else {
 
 
-                    if ($('#ActualNeeded').val() < $('#ActualDelivered').val()) {
+                    //if ($('#ActualNeeded').val() < $('#ActualDelivered').val()) {
 
-                        alert("Yung Available Nalang na Pwede Mong I Received ay" + $('#ActualNeeded').val());
-                        $('#ActualDelivered').val("");
-                    }
-                    else {
-                        //alert("B");
-                    }
+                    //    //alert("Available Nalang na Pwede Mong I Received ay" + $('#ActualNeeded').val()); bypass depot
+                    //    //$('#ActualDelivered').val("");4/6/2021 auto generated na ito need na alisin
+                    //}
+                    //else {
+                    //    //alert("B");
+                    //}
 
 
                     //alert("Fresh Nays");
 
                     //Comment Muna 1/11/2021
                     var sample = $('#tenPercentMinusActual').val();
-                    if ($('#ActualDelivered').val().replace(/,/g, '') > $('#tenPercentMinusActualCopy').val()) {
+                    //if ($('#ActualDelivered').val().replace(/,/g, '') > $('#tenPercentMinusActualCopy').val()) {
 
-                        alert("Error Maximum 10 Percent Allowable Exceed!");
-                        ($('#ActualDelivered').val(""));
+                    //    alert("Error Maximum 10 Percent Allowable Exceed!");
+                    //    ($('#ActualDelivered').val(""));
+                    //}
+
+                    if (parseFloat($("#tenPercentMinusActualCopy").val()) == parseFloat($("#ActualDelivered").val())) {
+                        //alert("Data is the same");
                     }
+                    else {
 
+                        if (parseFloat($("#tenPercentMinusActualCopy").val()) > parseFloat($("#ActualDelivered").val())) {
+                            $(".error").css("display", "block").css("color", "red");
+                            //$("#submit").prop('disabled', true);
+                            //alert("Wala pa sa 10 Percent");
+                        }
+                        else {
+                            $(".error").css("display", "none");
+                            //$("#submit").prop('disabled', false);
+                            alert("Maximum 10 Percent Allowable Exceed!!");
+                            ($('#tare_weight').val(""));
+                        }
+                    }
 
 
                 }
@@ -2629,8 +2646,8 @@
 
                 if ($('#ActualNeeded').val() < $('#ActualDelivered').val()) {
 
-                    alert("Yung Available Nalang na Pwede Mong I Received ay" + $('#ActualNeeded').val());
-                    $('#ActualDelivered').val("");
+                    //alert("Yung Available Nalang na Pwede Mong I Received ay" + $('#ActualNeeded').val());
+                    //$('#ActualDelivered').val(""); downb muna 4/6/2021
                 }
                 else
                 {
@@ -2653,9 +2670,26 @@
                 else {
                     //alert("Fresh Nays"); 1/11/2021
                 var sample = $('#tenPercentMinusActual').val();
-                    if ($('#ActualDelivered').val().replace(/,/g, '') > $('#tenPercentMinusActualCopy').val()) {
-                    alert("Error Maximum 10 Percent Allowable Exceed!");
-                    ($('#ActualDelivered').val(""));
+                    //if ($('#ActualDelivered').val().replace(/,/g, '') > $('#tenPercentMinusActualCopy').val()) {
+                    //alert("Error Maximum 10 Percent Allowable Exceed!");
+                    //($('#ActualDelivered').val(""));
+                    //}
+                    if (parseFloat($("#tenPercentMinusActualCopy").val()) == parseFloat($("#ActualDelivered").val())) {
+                        //alert("Data is the same");
+                    }
+                    else {
+
+                        if (parseFloat($("#tenPercentMinusActualCopy").val()) > parseFloat($("#ActualDelivered").val())) {
+                            $(".error").css("display", "block").css("color", "red");
+                            //$("#submit").prop('disabled', true);
+                            //alert("Wala pa sa 10 Percent");
+                        }
+                        else {
+                            $(".error").css("display", "none");
+                            //$("#submit").prop('disabled', false);
+                            alert("Maximum 10 Percent Allowable Exceed!!");
+                            ($('#tare_weight').val(""));
+                        }
                     }
 
 

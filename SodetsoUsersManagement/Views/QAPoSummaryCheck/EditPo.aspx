@@ -217,7 +217,7 @@
 
 
 
-                                            <input type="hidden" id="tenPercentMinusActualCopy" />                  <%--                      alucard--%>
+                                            <input type="hidden" id="tenPercentMinusActualCopy"/>                  <%--                      alucard--%>
                                             <%: Html.TextBoxFor(model => model.tenPercentAllow, new{ @class = "form-control", @placeholder="Allowable ten", @required ="true",@id="tenPercentMinusActual",@min="0",@style="display:none"}) %>
                
                                                   <%: Html.ValidationMessageFor(model => model.tenPercentAllow, "", new { @class = "text-danger" }) %>
@@ -1390,6 +1390,8 @@
 
 
 
+       
+
                 //START
                 var ActualDelivery = $('#ActualDelivered').val().replace(/,/g, '');
 
@@ -1409,14 +1411,31 @@
 
 
                     var sample = $('#tenPercentMinusActual').val();
-                    if ($('#ActualDelivered').val().replace(/,/g, '') > $('#tenPercentMinusActualCopy').val()) {
+                    //if ($('#ActualDelivered').val().replace(/,/g, '') > $('#tenPercentMinusActualCopy').val()) {
 
 
 
-                        alert("Error Maximum 10 Percent Allowable Exceed!");
-                        ($('#ActualDelivered').val(""));
+                    //    alert("Error Maximum 10 Percent Allowable Exceed!1"); //1
+                    //    ($('#ActualDelivered').val(""));
+                    //}
+
+                    if (parseFloat($("#tenPercentMinusActualCopy").val()) == parseFloat($("#ActualDelivered").val())) {
+                        //alert("Data is the same");
                     }
+                    else {
 
+                        if (parseFloat($("#tenPercentMinusActualCopy").val()) > parseFloat($("#ActualDelivered").val())) {
+                            $(".error").css("display", "block").css("color", "red");
+                            //$("#submit").prop('disabled', true);
+                            //alert("Wala pa sa 10 Percent");
+                        }
+                        else {
+                            $(".error").css("display", "none");
+                            //$("#submit").prop('disabled', false);
+                            alert("Maximum 10 Percent Allowable Exceed!!");
+                            ($('#ActualDelivered').val(""));
+                        }
+                    }
 
 
                 }
@@ -1593,6 +1612,19 @@
                     //break;
                 }
 
+                //if (($('#tenPercentMinusActualCopy').val()) > ($('#ActualDelivered').val().replace(/,/g, ''))) {
+
+
+                //    alert("Error Maximum 10 Percent Allowable Exceed!200");
+                //    ($('#ActualDelivered').val(""));
+
+                //}
+                //else {
+                //   
+                //}
+
+            
+
 
                 var ActualDelivery = $('#ActualDelivered').val().replace(/,/g, '');
 
@@ -1613,13 +1645,32 @@
 
 
                 var sample = $('#tenPercentMinusActual').val();
-                    if ($('#ActualDelivered').val().replace(/,/g, '') > $('#tenPercentMinusActualCopy').val()) {
+                    //if ($('#ActualDelivered').val().replace(/,/g, '') > $('#tenPercentMinusActualCopy').val())
+                    //if ($('#tenPercentMinusActualCopy').val() > $('#ActualDelivered').val().replace(/,/g, '')) {
 
 
+                    //    alert("Error Maximum 10 Percent Allowable Exceed!200");
+                    //    ($('#ActualDelivered').val(""));
 
-                    alert("Error Maximum 10 Percent Allowable Exceed!");
-                    ($('#ActualDelivered').val(""));
-                }
+                    //}
+                    if (parseFloat($("#tenPercentMinusActualCopy").val()) == parseFloat($("#ActualDelivered").val())) {
+                        //alert("Data is the same");
+                    }
+                    else {
+
+                        if (parseFloat($("#tenPercentMinusActualCopy").val()) > parseFloat($("#ActualDelivered").val())) {
+                            $(".error").css("display", "block").css("color", "red");
+                            //$("#submit").prop('disabled', true);
+                            //alert("Wala pa sa 10 Percent");
+                        }
+                        else {
+                            $(".error").css("display", "none");
+                            //$("#submit").prop('disabled', false);
+                            alert("Maximum 10 Percent Allowable Exceed!!");
+                            ($('#ActualDelivered').val(""));
+                        }
+                    }
+                  
 
 
 
@@ -1689,7 +1740,7 @@
 
 
 
-</script>
+    </script>
     <script>
 
 

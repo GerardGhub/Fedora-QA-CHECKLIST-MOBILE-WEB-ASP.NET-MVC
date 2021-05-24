@@ -486,7 +486,7 @@ namespace SodetsoUsersManagement.Services
 
 
                         __UsersListModel.vendor_name = reader["vendor_name"].ToString();
-
+                        __UsersListModel.DateChecklistCreated = reader["DateChecklistCreated"].ToString();
 
                         _UsersListModel.Add(__UsersListModel);
                     }

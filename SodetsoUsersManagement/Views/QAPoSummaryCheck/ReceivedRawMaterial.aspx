@@ -42,6 +42,7 @@
                                           <th>Good</th>
                                          <th>Reject</th>
                                        <th>Expiry</th>
+                                     <th>QC Received Date</th>
                                       <th style="text-align:center;">Status</th>
                                       <th style="text-align:center;" id="<%: Session["Position"] %>">Cancel</th>
                             </tr>
@@ -78,6 +79,7 @@
                                 <td id="agent_commission_model"><b><%: Html.DisplayFor(m => item.Password) %></b></td>
                                 <td id="agent_commission_model"><b><%: Html.DisplayFor(m => item.qty_reject) %></b></td>
                                  <td><%: Html.DisplayFor(m => item.expiry_date) %></td>
+                                   <td><%: Html.DisplayFor(m => item.DateChecklistCreated) %></td>
                                 <td style="text-align:center;">
                                     <% if (item.IsActive == 1) 
                                     { %>                                    
