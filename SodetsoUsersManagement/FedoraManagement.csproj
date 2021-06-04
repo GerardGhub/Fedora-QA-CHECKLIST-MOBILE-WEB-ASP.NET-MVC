@@ -655,6 +655,7 @@
     <Content Include="Content\js\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Content\sweetalert\bootstrap-sweetalert.png" />
     <Content Include="Content\sweetalert\docs.css" />
+    <Content Include="Content\sweetalert\jsfile\sweetalertJsFile.js" />
     <Content Include="Content\sweetalert\sweet-alert.css" />
     <Content Include="Content\sweetalert\thumbs-up.jpg" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />

@@ -2379,21 +2379,26 @@
                     //    ($('#ActualDelivered').val(""));
                     //}
 
-                    if (parseFloat($("#tenPercentMinusActualCopy").val()) == parseFloat($("#ActualDelivered").val())) {
+                    if (parseFloat($("#tenPercentComputation").val()) == parseFloat($("#ActualDelivered").val())) {
                         //alert("Data is the same");
                     }
                     else {
 
-                        if (parseFloat($("#tenPercentMinusActualCopy").val()) > parseFloat($("#ActualDelivered").val())) {
+                        if (parseFloat($("#tenPercentComputation").val()) > parseFloat($("#ActualDelivered").val())) {
                             $(".error").css("display", "block").css("color", "red");
                             //$("#submit").prop('disabled', true);
                             //alert("Wala pa sa 10 Percent");
                         }
                         else {
-                            $(".error").css("display", "none");
-                            //$("#submit").prop('disabled', false);
-                            alert("Maximum 10 Percent Allowable Exceed!!");
-                            ($('#tare_weight').val(""));
+                            if ((parseFloat($("#tenPercentComputation").val()) == 0)) {
+
+                            }
+                            else {
+                                $(".error").css("display", "none");
+                                //$("#submit").prop('disabled', false);
+                                alert("Maximum 10 Percent Allowable Exceed!!");
+                                ($('#tare_weight').val(""));
+                            }
                         }
                     }
 
@@ -2668,27 +2673,32 @@
                     //alert("Fresh Morning");
                   }
                 else {
-                    //alert("Fresh Nays"); 1/11/2021
+                    //alert("Fresh Nays"); 1/11/2021 tenPercentMinusActualCopytenPercentMinusActualCopy
                 var sample = $('#tenPercentMinusActual').val();
-                    //if ($('#ActualDelivered').val().replace(/,/g, '') > $('#tenPercentMinusActualCopy').val()) {
-                    //alert("Error Maximum 10 Percent Allowable Exceed!");
-                    //($('#ActualDelivered').val(""));
-                    //}
-                    if (parseFloat($("#tenPercentMinusActualCopy").val()) == parseFloat($("#ActualDelivered").val())) {
+            
+                    if (parseFloat($("#tenPercentComputation").val()) == parseFloat($("#ActualDelivered").val())) {
                         //alert("Data is the same");
                     }
                     else {
+                        
 
-                        if (parseFloat($("#tenPercentMinusActualCopy").val()) > parseFloat($("#ActualDelivered").val())) {
+                        if (parseFloat($("#tenPercentComputation").val()) > parseFloat($("#ActualDelivered").val())) {
                             $(".error").css("display", "block").css("color", "red");
                             //$("#submit").prop('disabled', true);
                             //alert("Wala pa sa 10 Percent");
                         }
                         else {
+                            if ((parseFloat($("#tenPercentComputation").val()) == 0)) {
+                                //alert("Expected Delivery is Required! ");
+                                //swal("Good job!", "You clicked the button!", "success");
+                            }
+                            else {
                             $(".error").css("display", "none");
                             //$("#submit").prop('disabled', false);
                             alert("Maximum 10 Percent Allowable Exceed!!");
-                            ($('#tare_weight').val(""));
+                                ($('#tare_weight').val(""));
+                                }
+
                         }
                     }
 

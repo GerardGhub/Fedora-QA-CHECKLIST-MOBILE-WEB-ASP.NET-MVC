@@ -1419,12 +1419,12 @@
                     //    ($('#ActualDelivered').val(""));
                     //}
 
-                    if (parseFloat($("#tenPercentMinusActualCopy").val()) == parseFloat($("#ActualDelivered").val())) {
+                    if (parseFloat($("#tenPercentComputation").val()) == parseFloat($("#ActualDelivered").val())) {
                         //alert("Data is the same");
                     }
                     else {
 
-                        if (parseFloat($("#tenPercentMinusActualCopy").val()) > parseFloat($("#ActualDelivered").val())) {
+                        if (parseFloat($("#tenPercentComputation").val()) > parseFloat($("#ActualDelivered").val())) {
                             $(".error").css("display", "block").css("color", "red");
                             //$("#submit").prop('disabled', true);
                             //alert("Wala pa sa 10 Percent");
@@ -1653,12 +1653,12 @@
                     //    ($('#ActualDelivered').val(""));
 
                     //}
-                    if (parseFloat($("#tenPercentMinusActualCopy").val()) == parseFloat($("#ActualDelivered").val())) {
+                    if (parseFloat($("#tenPercentComputation").val()) == parseFloat($("#ActualDelivered").val())) {
                         //alert("Data is the same");
                     }
                     else {
 
-                        if (parseFloat($("#tenPercentMinusActualCopy").val()) > parseFloat($("#ActualDelivered").val())) {
+                        if (parseFloat($("#tenPercentComputation").val()) > parseFloat($("#ActualDelivered").val())) {
                             $(".error").css("display", "block").css("color", "red");
                             //$("#submit").prop('disabled', true);
                             //alert("Wala pa sa 10 Percent");
