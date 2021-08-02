@@ -27,8 +27,11 @@
     <link href="/Content/css/jquery-ui.css" rel="stylesheet" />
 
 <%--    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>  --%>
-    <script src="../../Content/sweetalert/jsfile/sweetalertJsFile.js"></script>
+
     <link href="../../Content/sweetalert/sweet-alert.css" rel="stylesheet" />
+  
+
+        <script src="../../Content/sweetalert/jsfile/sweetalertJsFile.js"></script>
 
 <%--    <script src="../../Scripts/Fedora.js"></script>--%>
 

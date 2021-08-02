@@ -359,6 +359,7 @@
         </div>
     </div>
 
+                                
                              <script>
 
 
@@ -401,15 +402,17 @@
 
 
 
+                       
 
                            
                             //alert("Please enter OrderPrice !");  
 
-                            //     Swal.fire(
-                            //         'Good job!',
-                            //         'You clicked the button!',
-                            //         'success'
-                            //     )
+                                 //Swal.fire(
+                                 //    'Good job!',
+                                 //    'You clicked the button!',
+                                 //    'success'
+                                 //)
+                                 //swal("Good job!", "You clicked the button!", "success")
                              </script>
 
                  <style>

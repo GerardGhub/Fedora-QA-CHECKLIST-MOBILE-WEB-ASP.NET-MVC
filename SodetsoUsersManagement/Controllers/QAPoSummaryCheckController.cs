@@ -66,6 +66,7 @@ namespace SodetsoUsersManagement.Controllers
 
         }
 
+
         [HttpGet]
         public ActionResult EditPo(int id)
         {
@@ -294,6 +295,35 @@ namespace SodetsoUsersManagement.Controllers
             {
                 TempData["ModelsError"] = "Error";
                 return RedirectToAction("PoList");
+            }
+
+        }
+
+
+        [HttpPost]
+        public ActionResult ReturnApprovePO(UsersListModel model)
+        {
+            if (ModelState.IsValid)
+            {
+
+                try
+                {
+                    _PoServices.ReturnApprovePO(model);
+                    TempData["Success"] = "Success";
+                    return RedirectToAction("CancelRawMats");
+                }
+                catch (Exception e)
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    ModelState.AddModelError("", e.Message);
+                    TempData["Fail"] = "Fail";
+                    return View("CancelRawMats", model);
+                }
+            }
+            else
+            {
+                TempData["ModelsError"] = "Error";
+                return RedirectToAction("CancelRawMats");
             }
 
         }

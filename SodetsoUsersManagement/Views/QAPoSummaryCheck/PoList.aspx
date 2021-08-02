@@ -247,10 +247,11 @@
 
 
 
-                                   <td style="text-align:center"<%--class="<%: Session["Position"] %>"--%>>
+                                   <td style="text-align:center">
+
                                     <% if (item.checklist_approval == "Cancel") 
                                     { %>                                    
-                                        <%--<span class="label label-primary">Active</span>--%>
+                                       
 
                                         <a href="#Uncancel<%: Html.DisplayFor(m => item.po_sum_id) %>" data-toggle="modal"><span class="label label-danger">Confirm</span></a>
                                         

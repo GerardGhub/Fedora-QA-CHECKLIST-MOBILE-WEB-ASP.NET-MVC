@@ -164,11 +164,29 @@ namespace SodetsoUsersManagement.Services
         }
 
 
+        public int ReturnApprovePO(UsersListModel model)
+        {
+            using (SqlConnection conn = new SqlConnection(DBCon))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("ReturnApprovePO", conn);//call Stored Procedure
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@po_sum_id", model.po_sum_id);
+                cmd.Parameters.AddWithValue("@Operation", model.Operation);
+                cmd.Parameters.AddWithValue("@checklist_remarks", model.checklist_remarks);
+                //cmd.Parameters.AddWithValue("@cancel_date", model.cancel_date);
+                int rs = cmd.ExecuteNonQuery();
+
+                return rs;
+
+            }
+        }
 
 
 
 
- 
+
+
 
 
 
