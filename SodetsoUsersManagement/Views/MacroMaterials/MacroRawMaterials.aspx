@@ -44,7 +44,7 @@
                                 <th class="<%: Session["Position"] %>" style="text-align:center">Rejection</th>
                                 <th class="<%: Session["Position"] %>">Status</th>
                                 <th style="text-align:center">Edit</th>
-                                <th style="text-align:center">Cancel</th>
+                                <th class="<%: Session["Position"] %>" style="text-align:center">Cancel</th>
                                 <th class="<%: Session["Position"] %>">Dispose</th>
                             </tr>
                         </thead>
@@ -247,7 +247,7 @@
 
 
 
-                                   <td style="text-align:center"<%--class="<%: Session["Position"] %>"--%>>
+                                   <td  class="<%: Session["Position"] %>" style="text-align:center"
                                     <% if (item.checklist_approval == "Cancel") 
                                     { %>                                    
                                         <%--<span class="label label-primary">Active</span>--%>
@@ -287,54 +287,63 @@
 
                                     <!-- Activate User Modal -->
                                     <div class="modal fade" id="CancelModal<%: Html.DisplayFor(m => item.po_sum_id) %>" tabindex="-1" role="dialog" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header btn-danger">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                    <h4 class="modal-title"> Cancel Raw Materials</h4>
-                                                </div>
-                                                <% using (Html.BeginForm("CancelQAMacroRawMaterials", null, FormMethod.Post, new { @class = "smart-form client-form", role = "form", id = "smart-form-register", enctype = "multipart/form-data" }))
-                                                { %>
-                                                    <div class="modal-body">
-                                                        Are you sure you want to Cancel the Macro Raw Materials <strong><%: Html.DisplayFor(m => item.item_description) %> <%--<%: Html.DisplayFor(m => item.Middlename) %> <%: Html.DisplayFor(m => item.Lastname) %>--%></strong>?
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header btn-danger">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title"> Cancel Raw Materials</h4>
+                                    </div>
+                                    <% using (Html.BeginForm("CancelQAMacroRawMaterials", null, FormMethod.Post, new { @class = "smart-form client-form", role = "form", id = "smart-form-register", enctype = "multipart/form-data" }))
+                                    { %>
+                                    <div class="modal-body">
+                                    Are you sure you want to Cancel the Macro Raw Materials <strong><%: Html.DisplayFor(m => item.item_description) %> <%--<%: Html.DisplayFor(m => item.Middlename) %> <%: Html.DisplayFor(m => item.Lastname) %>--%></strong>?
                                                            
-                                                        <input type="hidden" class="form-control" name="po_sum_id" value="<%: Html.DisplayFor(m => item.po_sum_id) %>" />
-                                                        <input type="hidden" name="Operation" value="Cancels" /><br />
+                                    <input type="hidden" class="form-control" name="po_sum_id" value="<%: Html.DisplayFor(m => item.po_sum_id) %>" />
+                                    <input type="hidden" name="Operation" value="Cancels" /><br />
 
 
-                                                        <select id="cars" name="checklist_remarks" class="form-control">
+                                    <select id="cars" name="checklist_remarks" class="form-control">
                                                   
-                                                        <option value="CHANGE OF SUPPLIER ">CHANGE OF SUPPLIER </option>
-                                                        <option value="OUT OF STOCK">OUT OF STOCK</option>
-                                                                <option value="RE-PR">RE-PR</option>
-                                                                       <option value="OTHERS">OTHERS</option>
+                                    <option value="CHANGE OF SUPPLIER ">CHANGE OF SUPPLIER </option>
+                                    <option value="OUT OF STOCK">OUT OF STOCK</option>
+                                    <option value="RE-PR">RE-PR</option>
+                                    <option value="OTHERS">OTHERS</option>
 
-                                                                        </select>
+                                    </select>
 
-            <%--                    <%: Html.TextBoxFor(m => item.checklist_remarks new { @class = "form-control", @placeholder="Enter Item Description", @required = "true"}) %>--%>
- </div>
+
+                                    <div class="form-group">
+
+                                            
+                                    <input type="hidden" name="cancelled_po_by" value="<%: Session["Firstname"] %>&nbsp;<%: Session["Lastname"] %>" class="form-control" readonly/>
+
+
+                                    </div>
+
+
+                                    </div>
 
                                                       
                                          
-                                                    <div class="modal-footer clearfix"> 
+                                    <div class="modal-footer clearfix"> 
 
 
 
 
                                                         
                                                          
-                                                           <button type="submit" class="btn btn-primary"> Yes</button>   
-                                                            <button type="button" class="btn btn-danger" data-dismiss="modal"> Cancel</button> 
-                                                    </div>
-                                                <% }%>
+                                    <button type="submit" class="btn btn-primary"> Yes</button>   
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal"> Cancel</button> 
+                                    </div>
+                                    <% }%>
 
-                                            </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-content -->
 
-                                        </div><!-- /.modal-dialog -->
+                                    </div><!-- /.modal-dialog -->
                                     </div>
                                     <!-- /.Activate User modal -->
                                     <% } %> 
-                                </td>
+                                    </td>
 
 
 

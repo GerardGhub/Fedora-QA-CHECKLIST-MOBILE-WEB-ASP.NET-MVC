@@ -92,6 +92,7 @@ namespace SodetsoUsersManagement.Services
                 cmd.Parameters.AddWithValue("@po_sum_id", model.po_sum_id);
                 cmd.Parameters.AddWithValue("@Operation", model.Operation);
                 cmd.Parameters.AddWithValue("@checklist_remarks", model.checklist_remarks);
+                cmd.Parameters.AddWithValue("@cancelled_po_by", model.cancelled_po_by);
                 //cmd.Parameters.AddWithValue("@cancel_date", model.cancel_date);
                 int rs = cmd.ExecuteNonQuery();
 

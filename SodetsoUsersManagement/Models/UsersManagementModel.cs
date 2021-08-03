@@ -161,6 +161,9 @@ namespace SodetsoUsersManagement.Models
         public string date_modified_status { get; set; }
         public string qty_good { get; set; }
         public string qty_remarks { get; set; }
+
+        public string cancelled_po_by { get; set; }
+        public string return_cancelled_po_by { get; set; }
     }
 
 

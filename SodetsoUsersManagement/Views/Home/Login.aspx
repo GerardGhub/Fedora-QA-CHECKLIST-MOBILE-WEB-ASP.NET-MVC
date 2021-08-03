@@ -62,7 +62,7 @@
     <script src="/Content/js/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="/Content/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<%--    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script>
 
@@ -71,7 +71,7 @@
             'You clicked the button!',
             'success'
         )
-    </script>
+    </script>--%>
 
 </body>
 </html>

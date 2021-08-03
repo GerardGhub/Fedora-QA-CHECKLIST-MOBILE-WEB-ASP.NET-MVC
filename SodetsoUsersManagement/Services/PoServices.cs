@@ -155,6 +155,7 @@ namespace SodetsoUsersManagement.Services
                 cmd.Parameters.AddWithValue("@po_sum_id", model.po_sum_id);
                 cmd.Parameters.AddWithValue("@Operation", model.Operation);
                 cmd.Parameters.AddWithValue("@checklist_remarks", model.checklist_remarks);
+                cmd.Parameters.AddWithValue("@cancelled_po_by", model.cancelled_po_by);
                 //cmd.Parameters.AddWithValue("@cancel_date", model.cancel_date);
                 int rs = cmd.ExecuteNonQuery();
 
@@ -174,6 +175,7 @@ namespace SodetsoUsersManagement.Services
                 cmd.Parameters.AddWithValue("@po_sum_id", model.po_sum_id);
                 cmd.Parameters.AddWithValue("@Operation", model.Operation);
                 cmd.Parameters.AddWithValue("@checklist_remarks", model.checklist_remarks);
+                cmd.Parameters.AddWithValue("@return_cancelled_po_by", model.return_cancelled_po_by);
                 //cmd.Parameters.AddWithValue("@cancel_date", model.cancel_date);
                 int rs = cmd.ExecuteNonQuery();
 
@@ -608,7 +610,7 @@ namespace SodetsoUsersManagement.Services
                         //__UsersListModel.stacking_level = reader["stacking_level"].ToString();
 
                         //__UsersListModel.vendor_name = reader["vendor_name"].ToString();
-
+                        __UsersListModel.cancelled_po_by = reader["cancelled_po_by"].ToString();
 
                         _UsersListModel.Add(__UsersListModel);
                     }

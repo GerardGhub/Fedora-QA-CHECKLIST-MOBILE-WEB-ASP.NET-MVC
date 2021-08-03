@@ -8,86 +8,88 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
 
-                        <!-- row -->
-                        <div class="row">
-                        <div class="col-md-6">
-                        <% if (TempData["Success"] != null)
-                        { %>
-                        <div class="alert alert-success alert-dismissable">
-                        <i class="fa fa-check"></i>
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <b>Alert!</b> Success.  
-                        </div>
-                        <% } %>
-                        </div>
-                        </div>
-                        <div class="row">
-                        <div class="col-xs-12">
-                        <div class="box box-primary">
+                                    <!-- row -->
+                                    <div class="row">
+                                    <div class="col-md-6">
+                                    <% if (TempData["Success"] != null)
+                                    { %>
+                                    <div class="alert alert-success alert-dismissable">
+                                    <i class="fa fa-check"></i>
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <b>Alert!</b> Success.  
+                                    </div>
+                                    <% } %>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                    <div class="col-xs-12">
+                                    <div class="box box-primary">
 
-                        <!-- /.box-header -->
-                        <div class="box-body table-responsive">
-                        <table id="example1" class="table table-bordered table-hover">
-                        <thead>
-                        <tr>
-                        <th>Po&nbsp;No.</th>
-                        <th>Item&nbsp;Code</th>
-                        <th>Description</th>
-                        <th>Supplier</th>
-                        <th class="<%: Session["Position"] %>">Qty.&nbsp;Ordered</th>
-                        <th>Qty.&nbsp;Cancel</th>
-                        <th class="<%: Session["Position"] %>">Qty.&nbsp;Good</th>
-                        <th>Date of Cancel</th>
-                        <th>Remarks</th>
-                        <th style="text-align:center">Return</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <% foreach (var item in Model)
-                        {%>
-                        <tr>
-                        <td>
-                        <% if (item.Image == null)
-                        { %>
+                                    <!-- /.box-header -->
+                                    <div class="box-body table-responsive">
+                                    <table id="example1" class="table table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                    <th>Po&nbsp;No.</th>
+                                    <th>Item&nbsp;Code</th>
+                                    <th>Description</th>
+                                    <th>Supplier</th>
+                                    <th class="<%: Session["Position"] %>">Qty.&nbsp;Ordered</th>
+                                    <th>Qty.&nbsp;Cancel</th>
+                                    <th class="<%: Session["Position"] %>">Qty.&nbsp;Good</th>
+                                    <th>Date Cancelled</th>
+                                    <th>Remarks</th>
+                                    <th>Cancelled By </th>
+                            
+                                    <th style="text-align:center" class="<%: Session["Position"] %>">Return</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <% foreach (var item in Model)
+                                    {%>
+                                    <tr>
+                                    <td>
+                                    <% if (item.Image == null)
+                                    { %>
 
-                        <%}
-                        else
-                        { %>
+                                    <%}
+                                    else
+                                    { %>
 
-                        <%      
-                        {
-                        var base64 = Convert.ToBase64String(item.Image);
-                        var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
-                        %>
+                                    <%      
+                                    {
+                                    var base64 = Convert.ToBase64String(item.Image);
+                                    var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+                                    %>
 
-                        <img src="<%: @imgSrc %>" alt="<%: @Html.DisplayFor(m => item.Firstname) %>" height="70" width="70" /><%} %>
-                        <%} %>
-                        <%: @Html.DisplayFor(m => item.po_number) %>
-                        </td>
+                                    <img src="<%: @imgSrc %>" alt="<%: @Html.DisplayFor(m => item.Firstname) %>" height="70" width="70" /><%} %>
+                                    <%} %>
+                                    <%: @Html.DisplayFor(m => item.po_number) %>
+                                    </td>
 
-                        <td><%: Html.DisplayFor(m => item.item_code) %></td>
-                        <td><%: Html.DisplayFor(m => item.item_description) %></td>
-                        <td><%: Html.DisplayFor(m => item.vendor_name) %></td>
-                        <td class="<%: Session["Position"] %>"><%: Html.DisplayFor(m => item.qty_ordered) %></td>
+                                    <td><%: Html.DisplayFor(m => item.item_code) %></td>
+                                    <td><%: Html.DisplayFor(m => item.item_description) %></td>
+                                    <td><%: Html.DisplayFor(m => item.vendor_name) %></td>
+                                    <td class="<%: Session["Position"] %>"><%: Html.DisplayFor(m => item.qty_ordered) %></td>
       
 
 
 
 
-                        <% 
+                                    <% 
                       
-                        if (item.qty_remarks == "0")
+                                    if (item.qty_remarks == "0")
 
-                        {%>  
+                                    {%>  
 
-                        <td id="agent_commission_models"><b><%: Html.DisplayFor(m => item.qty_ordered) %></b></td>
+                                    <td id="agent_commission_models"><b><%: Html.DisplayFor(m => item.qty_ordered) %></b></td>
 
-                        <% }
-                        else
-                        {  %>
-                        <td id="agent_commission_model"><b><%: Html.DisplayFor(m => item.qty_remarks) %></b></td>
+                                    <% }
+                                    else
+                                    {  %>
+                                    <td id="agent_commission_model"><b><%: Html.DisplayFor(m => item.qty_remarks) %></b></td>
 
-                        <%  } %>
+                                    <%  } %>
 
 
 
@@ -101,8 +103,9 @@
 
                                  <td><%: Html.DisplayFor(m => item.cancel_date) %></td>
                                                <td><%: Html.DisplayFor(m => item.checklist_remarks) %></td>
+                               <td><%: Html.DisplayFor(m => item.cancelled_po_by) %></td>
 
-                                <td style="text-align:center">
+                                <td class="<%: Session["Position"] %>" style="text-align:center">
 
                                 <% if (item.checklist_approval == "Cancel") 
                                 { %>                                    
@@ -157,8 +160,6 @@
                                 <input type="hidden" class="form-control" name="po_sum_id" value="<%: Html.DisplayFor(m => item.po_sum_id) %>" />
                                 <input type="hidden" name="Operation" value="Cancels" /><br />
 
-                                <%--                                                           <input type="text" name="checklist_remarks" style="width:540px"  class="form-control"/>--%><%--dance 4/13/220
-                                --%>
                                 <select id="cars" name="checklist_remarks" class="form-control">
                                                   
                                 <option value="FOR RECEIVING">FOR RECEIVING </option>
@@ -168,7 +169,8 @@
 
                                 </select>
 
-                                <%--                    <%: Html.TextBoxFor(m => item.checklist_remarks new { @class = "form-control", @placeholder="Enter Item Description", @required = "true"}) %>--%>
+                                <input type="hidden" name="return_cancelled_po_by" value="<%: Session["Firstname"] %>&nbsp;<%: Session["Lastname"] %>" class="form-control" readonly/>
+
                                 </div>
 
                                                       
@@ -176,9 +178,7 @@
                                 <div class="modal-footer clearfix"> 
 
 
-                                <%--                                                        <input type="number"/>
-                                <button>Clear</button>--%>
-
+      
                                                         
                                                          
                                 <button type="submit" class="btn btn-primary"> Yes</button>   
@@ -196,40 +196,41 @@
 
 
 
-                          </td>
+                                </td>
                             
                                  
      
-                            </tr>
-                            <% } %>
-                        </tbody>
-                        <tfoot>
-                            <tr style="display:none;">
-                                    <th>Po&nbsp;No.</th>
+                                </tr>
+                                <% } %>
+                                </tbody>
+                                <tfoot>
+                                <tr style="display:none;">
+                                <th>Po&nbsp;No.</th>
                                 <th>Item&nbsp;Code</th>
                                 <th>Qty.&nbsp;Ordered</th>
                                 <th>Qty.&nbsp;Delivered</th>
                                 <th>Qty.&nbsp;Remaining</th>
-                                 <th>Good</th>
+                                <th>Good</th>
                                 <th>Reject</th>
                                 <th>Expiry</th>
                                 <th>Status</th>
                                 <th>*</th>
-           <%--                     <th>*</th>--%>
+                                <%--                     <th>*</th>--%>
                       
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-                <!-- /.box-body -->
-            </div>
-            <!-- /.box -->
-        </div>
-    </div>
-        <style>
-                .Senior.Automation{
-            display:none;
-        }
-    </style>
+                                </tr>
+                                </tfoot>
+                                </table>
+                                </div>
+                                <!-- /.box-body -->
+                                </div>
+                                <!-- /.box -->
+                                </div>
+                                </div>
+                                <style>
+                                .QAStaff{
+                                display:none;
+                                }
+                                </style>
+
 
 </asp:Content>
