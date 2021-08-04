@@ -508,6 +508,8 @@ namespace SodetsoUsersManagement.Services
                         __UsersListModel.vendor_name = reader["vendor_name"].ToString();
                         __UsersListModel.DateChecklistCreated = reader["DateChecklistCreated"].ToString();
 
+
+                        __UsersListModel.QA_by = reader["QA_by"].ToString();
                         _UsersListModel.Add(__UsersListModel);
                     }
                 }

@@ -164,6 +164,8 @@ namespace SodetsoUsersManagement.Models
 
         public string cancelled_po_by { get; set; }
         public string return_cancelled_po_by { get; set; }
+
+        public string QA_by { get; set; }
     }
 
 

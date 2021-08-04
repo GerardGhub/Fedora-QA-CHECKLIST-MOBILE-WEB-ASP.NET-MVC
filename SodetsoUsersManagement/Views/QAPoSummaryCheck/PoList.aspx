@@ -36,12 +36,12 @@
                                 <th>Supplier</th>
                                 <th>UOM</th>
                                 <th>Qty.&nbsp;Ordered</th>
-                                <th class="<%: Session["Position"] %>">Actual.&nbsp;Delivered</th>
+                               <%-- <th class="<%: Session["Position"] %>">Actual.&nbsp;Delivered</th>--%>
                                 <th>Actual.&nbsp;Good</th>
-                                <th class="<%: Session["Position"] %>">Actual.&nbsp;Reject</th>
-                                <th class="<%: Session["Position"] %>">Qty.&nbsp;Remaining</th>
+                      <%--          <th class="<%: Session["Position"] %>">Actual.&nbsp;Reject</th>--%>
+                      <%--          <th class="<%: Session["Position"] %>">Qty.&nbsp;Remaining</th>--%>
                                 <th>Actual.&nbsp;Remaining</th>
-                                <th class="<%: Session["Position"] %>" style="text-align:center">Rejection</th>
+                               
                                 <th class="<%: Session["Position"] %>">Status</th>
                                 <th style="text-align:center">Edit</th>
                                 <th id="<%: Session["Position"] %>" style="text-align:center">Cancel</th>
@@ -62,77 +62,13 @@
                                 <td><%: Html.DisplayFor(m => item.vendor_name) %></td>
                                 <td><%: Html.DisplayFor(m => item.qty_uom) %></td>
                                 <td id="agent_commission_model"><b><%: Html.DisplayFor(m => item.qty_ordered) %></b></td>
-                                <td class="<%: Session["Position"] %>"><%: Html.DisplayFor(m => item.qty_delivered) %></td>
+                               <%-- <td class="<%: Session["Position"] %>"><%: Html.DisplayFor(m => item.qty_delivered) %></td>--%>
                                 <td id="agent_commission_model"><b><%: Html.DisplayFor(m => item.qty_good) %></b></td>
-                                <td class="<%: Session["Position"] %>"><%: Html.DisplayFor(m => item.qty_void) %></td>
-                                <td class="<%: Session["Position"] %>"><%: Html.DisplayFor(m => item.qty_waiting) %></td>
+                            <%--    <td class="<%: Session["Position"] %>"><%: Html.DisplayFor(m => item.qty_void) %></td>--%>
+                           <%--     <td class="<%: Session["Position"] %>"><%: Html.DisplayFor(m => item.qty_waiting) %></td>--%>
                                 <td id="agent_commission_model"><b><%: Html.DisplayFor(m => item.qty_remarks) %></b></td>
                                                      
-                                <td class="<%: Session["Position"] %>" style="text-align:center" <%--class="<%: Session["Position"] %>"--%>>
-                                <% if (item.checklist_approval == "Rejection") 
-                                { %>                                    
-                                <%--<span class="label label-primary">Active</span>--%>
-
-                                <a href="#DeactivateUserModal<%: Html.DisplayFor(m => item.po_sum_id) %>" data-toggle="modal"><span class="label label-danger">Confirm</span></a>
-                                        
-                                <!-- Deactvate User Modal -->
-                                <div class="modal fade" id="DeactivateUserModal<%: Html.DisplayFor(m => item.po_sum_id) %>" tabindex="-1" role="dialog" aria-hidden="true">
-                                <div class="modal-dialog">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title"> Deactivate User</h4>
-                                </div>
-                                <% using (Html.BeginForm("DeactivateActivateRawMaterials", null, FormMethod.Post, new { @class = "smart-form client-form", role = "form", id = "smart-form-register", enctype = "multipart/form-data" }))
-                                { %>
-                                <div class="modal-body">
-                                Are you sure you want to deactivate the Raw Material <strong><%: Html.DisplayFor(m => item.item_description) %> <%--<%: Html.DisplayFor(m => item.Middlename) %> <%: Html.DisplayFor(m => item.Lastname) %>--%></strong>?
-                                                           
-                                <input type="hidden" class="form-control" name="po_sum_id" value="<%: Html.DisplayFor(m => item.po_sum_id) %>" />
-                                <input type="hidden" name="Operation" value="Deactivate" />
-                                </div>
-                                <div class="modal-footer clearfix"> 
-                                <button type="submit" class="btn btn-primary"> Yes</button>                         
-                                <button type="button" class="btn btn-danger" data-dismiss="modal"> Cancel</button> 
-                                </div>
-                                <% }%>
-                                </div><!-- /.modal-content -->
-                                </div><!-- /.modal-dialog -->
-                                </div>
-                                <!-- /.Disable User modal -->
-
-                                <% }
-                                else
-                                { %>
-                                <a href="#ActivateUserModal<%: Html.DisplayFor(m => item.po_sum_id) %>" data-toggle="modal"><span class="label label-success">None</span></a>
-
-                                <!-- Activate User Modal -->
-                                <div class="modal fade" id="#ActivateUserModal<%: Html.DisplayFor(m => item.po_sum_id) %>" tabindex="-1" role="dialog" aria-hidden="true">
-                                <div class="modal-dialog">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title"> Activate User</h4>
-                                </div>
-                                <% using (Html.BeginForm("DeactivateActivateRawMaterials", null, FormMethod.Post, new { @class = "smart-form client-form", role = "form", id = "smart-form-register", enctype = "multipart/form-data" }))
-                                { %>
-                                <div class="modal-body">
-                                Are you sure you want to Activate the User <strong><%: Html.DisplayFor(m => item.item_description) %> <%--<%: Html.DisplayFor(m => item.Middlename) %> <%: Html.DisplayFor(m => item.Lastname) %>--%></strong>?
-                                                           
-                                <input type="hidden" class="form-control" name="po_sum_id" value="<%: Html.DisplayFor(m => item.po_sum_id) %>" />
-                                <input type="hidden" name="Operation" value="Activate" />
-                                </div>
-                                <div class="modal-footer clearfix"> 
-                                <button type="submit" class="btn btn-primary"> Yes</button>                         
-                                <button type="button" class="btn btn-danger" data-dismiss="modal"> Cancel</button> 
-                                </div>
-                                <% }%>
-                                </div><!-- /.modal-content -->
-                                </div><!-- /.modal-dialog -->
-                                </div>
-                                <!-- /.Activate User modal -->
-                                <% } %> 
-                                </td>
+                              
 
 
                                 <td class="<%: Session["Position"] %>" style="text-align:center">
@@ -434,8 +370,22 @@
 
 
 
+                                 //swal({
+                                 //    title: "Are you sure?",
+                                 //    text: "You will not be able to recover this imaginary file!",
+                                 //    type: "warning",
+                                 //    showCancelButton: true,
+                                 //    confirmButtonClass: 'btn-danger',
+                                 //    confirmButtonText: 'Yes, delete it!',
+                                 //    closeOnConfirm: false,
+                                 //    //closeOnCancel: false
+                                 //},
+                                 //    function () {
+                                 //        swal("Deleted!", "Your imaginary file has been deleted!", "success");
+                                 //    });
 
-                        </script>
+
+                             </script>
                        
                  <style>
 /*                .Senior.Automation{

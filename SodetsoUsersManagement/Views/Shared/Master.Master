@@ -9,6 +9,17 @@
     <title>
         <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
     </title>
+
+   <%-- metada--%>
+    
+    <meta property="og:title" content="Social Buttons for Bootstrap" />
+    <meta property="og:description" content="A beautiful replacement for JavaScript's 'alert' for Bootstrap" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://lipis.github.io/bootstrap-sweetalert/" />
+    <meta property="og:image" content="http://lipis.github.io/bootstrap-social/assets/bootstrap-sweetalert.png" />
+
+
+
     <!-- bootstrap 3.0.2 -->
     <link href="/Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- font Awesome -->
@@ -21,20 +32,20 @@
     <link href="/Content/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="../../Content/css/mynewstyle.css" rel="stylesheet" />
     <!-- for my calculations onlyyy  -->
-<%--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>--%>
+
     <script src="/Scripts/library-jquery.min.js"></script>
     
     <link href="/Content/css/jquery-ui.css" rel="stylesheet" />
 
-<%--    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>  --%>
 
-    <link href="../../Content/sweetalert/sweet-alert.css" rel="stylesheet" />
+
+   
   
 
-        <script src="../../Content/sweetalert/jsfile/sweetalertJsFile.js"></script>
+       <%-- <script src="../../Content/sweetalert/jsfile/sweetalertJsFile.js"></script>--%>
+    <script src="../../Content/sweetalert/jsfile/sweetalert.js"></script>
 
-<%--    <script src="../../Scripts/Fedora.js"></script>--%>
-
+     <link href="../../Content/sweetalert/sweet-alert.css" rel="stylesheet" />
 
     <style>
         .true{
@@ -168,16 +179,9 @@ select.input-validation-error
    
     
 
-<%--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>--%>
-<%--    <script src="../../Scripts/sweetalert.min.js"></script>
-    <script src="../../Scripts/sweetalert-dev.js"></script>--%>
 
-
-<%--    <script src="../../Scripts/jquery-1.12.4.js"></script>--%>
     <script src="/Scripts/jquery-ui.js"></script>
     <!-- here muna -->
-<%--        <script src="../../Scripts/jquery-1.9.1.min.js"></script>--%>
-
 
     <!-- page script -->
     <script type="text/javascript">

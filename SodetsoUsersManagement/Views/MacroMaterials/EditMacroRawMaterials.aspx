@@ -249,10 +249,10 @@
                                           
                     <%: Html.ValidationMessageFor(model => model.stacking_level, "", new { @class = "text-danger" }) %>
 
-                    <input type="hidden" id="tenPercentComputation" value="0" class="form-control"/>    
+                    <input type="text" id="tenPercentComputation" value="0" class="form-control"/>    
 
 
-
+                          <input type="text" id="tenPercentComputationChange" value="0" class="form-control"/>  
 
                     </td>
           
@@ -349,12 +349,12 @@
                     {%>  
                     <input type="text" value="<%: Model.qty_ordered%>" class="form-control" readonly />
 
-                    <%--                                <td><%: Html.DisplayFor(m => item.qty_ordered) %></td>--%>
+                  
 
                     <% }
                     else
                     {  %>
-                    <%--                                  <td><%: Html.DisplayFor(m => item.qty_remarks) %></td>--%>
+                    
                     <input type="text" value="<%: Model.qty_remarks%>" id="ActualNeeded" class="form-control" readonly />
 
                     <%  } %>
@@ -1952,7 +1952,7 @@
 
 
                     $(function () {
-                    $("#num1, #ActualDelivered, #num3, #num4, #subt,#master1, #master2,#ten, #expected, #reject, #OrderVsGood, #reject1, #reject2, #gross_weight, #tare_weight,#net_weight").on("keydown keyup", sum);
+                        $("#num1, #ActualDelivered, #num3, #num4, #subt,#master1, #master2,#ten, #expected, #reject, #OrderVsGood, #reject1, #reject2, #gross_weight, #tare_weight,#net_weight, #ActualNeeded").on("keydown keyup", sum);
                     function sum() {
      
                     $("#subt").val(Number($("#num1").val()) - Number($("#ActualDelivered").val().replace(/,/g, '')) - Number($("#num3").val()));
@@ -1971,8 +1971,11 @@
                     $("#CPassword").val(Number($("#reject").val()) * 1);
  
                     // VALUE MULTIPLY BY 1.10
-                    $("#tenPercentComputation").val(1.10 * Number($("#expected").val().replace(/,/g, '')));
+                        //$("#tenPercentComputation").val(1.10 * Number($("#expected").val().replace(/,/g, '')));
 
+                        $("#tenPercentComputation").val(1.10 * Number($("#num1").val().replace(/,/g, '')));
+
+                     $("#tenPercentComputationChange").val(1.10 * Number($("#ActualNeeded").val().replace(/,/g, '')));
 
                     $("#CompareActualDelivedtoReject").val(Number($("#ActualDelivered").val().replace(/,/g, '')) - Number($("#num4").val()));
 
@@ -2004,31 +2007,31 @@
                     }
                     });
 
-        $("#text1").hide();
-        $("#text2").hide();
-        $("#btn2").hide();
+                    $("#text1").hide();
+                    $("#text2").hide();
+                    $("#btn2").hide();
 
 
 
-                        //Swal.fire(
-                        //    'Good job!',
-                        //    'You clicked the button!',
-                        //    'success'
-                        //)
+                    //Swal.fire(
+                    //    'Good job!',
+                    //    'You clicked the button!',
+                    //    'success'
+                    //)
 
 
 
-        ($('#expected').val(""));
+                    ($('#expected').val(""));
 
-        ($('#master2').val(""));
+                    ($('#master2').val(""));
 
-        //insert muna this
-        $(document).ready(function () {
+                    //insert muna this
+                    $(document).ready(function () {
 
-            $("#dt1").datepicker({
-                dateFormat: "dd-M-yy",
-                minDate: 0,
-                onSelect: function (date) {
+                    $("#dt1").datepicker({
+                    dateFormat: "dd-M-yy",
+                    minDate: 0,
+                    onSelect: function (date) {
                     var dt2 = $('#dt2');
                     var startDate = $(this).datepicker('getDate');
                     var minDate = $(this).datepicker('getDate');
@@ -2038,66 +2041,66 @@
                     dt2.datepicker('option', 'maxDate', startDate);
                     dt2.datepicker('option', 'minDate', minDate);
                     $(this).datepicker('option', 'minDate', minDate);
-                }
-            });
-            $('#dt2').datepicker({
-                dateFormat: "dd-M-yy"
-            });
-        });
+                    }
+                    });
+                    $('#dt2').datepicker({
+                    dateFormat: "dd-M-yy"
+                    });
+                    });
 
 
-        function parseDate(str) {
-            var mdy = str.split('-');
-            return new Date(mdy[0] - 1, mdy[1], mdy[2]);
-        }
+                    function parseDate(str) {
+                    var mdy = str.split('-');
+                    return new Date(mdy[0] - 1, mdy[1], mdy[2]);
+                    }
 
-        function datediff(dateToday, master2) {
-            // Take the difference between the dates and divide by milliseconds per day.
-            // Round to nearest whole number to deal with DST.
-            return Math.round((master2 - dateToday) / (1000 * 60 * 60 * 24));
-        }
+                    function datediff(dateToday, master2) {
+                    // Take the difference between the dates and divide by milliseconds per day.
+                    // Round to nearest whole number to deal with DST.
+                    return Math.round((master2 - dateToday) / (1000 * 60 * 60 * 24));
+                    }
 
-        function myFunctionCancel() {
+                    function myFunctionCancel() {
 
-            if (confirm("Cancel The Transaction?")) {
-                ($('#QaApprovalRemarks').val(""));
-                //<a href="/Home/Index">
-                location.href = "/Home/Index";
-            }
+                    if (confirm("Cancel The Transaction?")) {
+                    ($('#QaApprovalRemarks').val(""));
+                    //<a href="/Home/Index">
+                    location.href = "/Home/Index";
+                    }
 
-            else
-            {
+                    else
+                    {
 
-                ($('#QaApprovalRemarks').val(""));
+                    ($('#QaApprovalRemarks').val(""));
 
-            }
-            }
-
-
-
+                    }
+                    }
 
 
 
 
 
 
-        function myFunction() {
 
 
-            //swal({
-            //    title: "Sweet!",
-            //    text: "Here's a custom image.",
-            //    imageUrl: 'thumbs-up.jpg'
-            //});
-            //return;
 
-            if (confirm(datediff(parseDate(dateToday.value), parseDate(master2.value)) + " Days Between Mfg.Date And Expiry Date Do you want to Proceed The Checklist ?")) {
+                    function myFunction() {
+
+
+                    //swal({
+                    //    title: "Sweet!",
+                    //    text: "Here's a custom image.",
+                    //    imageUrl: 'thumbs-up.jpg'
+                    //});
+                    //return;
+
+                    if (confirm(datediff(parseDate(dateToday.value), parseDate(master2.value)) + " Days Between Mfg.Date And Expiry Date Do you want to Proceed The Checklist ?")) {
 
            
 
 
 
-                if ($('#FinalFormulaNegative').val() < 0) {
+                    if ($('#FinalFormulaNegative').val() < 0) {
                     //$("#master1").hide();
 
                     //alert("gf")
@@ -2105,12 +2108,12 @@
                     //    ($('#num4').val("")); // clear muna lahat to 4/7/020
                     //($('#CQTYReject').val("")); // clear muna lahat to 4/7/020
 
-                }
+                    }
 
 
-                else {
+                    else {
                     //alert("Pasok sa banga!")
-                }
+                    }
 
 
 
@@ -2120,76 +2123,153 @@
 
 
                     if ($('#reject').val() < 0) {
-                        //$("#master1").hide();
-                        ($('#CQTYReject ').val("")); // clear muna lahat to 4/7/020
+                    //$("#master1").hide();
+                    ($('#CQTYReject ').val("")); // clear muna lahat to 4/7/020
                  
-                        //alert("gf")
-                        alert("Warnings Actual Delivered is not Match at your Qty Reject !   : " + $('#CompareActualDelivedtoReject').val())
+                    //alert("gf")
+                    alert("Warnings Actual Delivered is not Match at your Qty Reject !   : " + $('#CompareActualDelivedtoReject').val())
                          
                     }
 
 
                     else {
-                        //alert("Pasok sa banga!")
+                    //alert("Pasok sa banga!")
                     }
 
 
 
-                //START
-                var ActualDelivery = $('#ActualDelivered').val().replace(/,/g, '');
+                    //START
+                    var ActualDelivery = $('#ActualDelivered').val().replace(/,/g, '');
 
-                var tenPercentequalone = $('#tenPercentComputation').val();
+                    var tenPercentequalone = $('#tenPercentComputation').val();
 
-                if (ActualDelivery < 10) {
+                    if (ActualDelivery < 10) {
 
 
 
                     //alert("Fresh Morning");
-                }
-                else {
-
-
-                    //if ($('#ActualNeeded').val() < $('#ActualDelivered').val()) {
-
-                    //    //alert("Available Nalang na Pwede Mong I Received ay" + $('#ActualNeeded').val()); bypass depot
-                    //    //$('#ActualDelivered').val("");4/6/2021 auto generated na ito need na alisin
-                    //}
-                    //else {
-                    //    //alert("B");
-                    //}
-
-
-                    //alert("Fresh Nays");
-
-                    //Comment Muna 1/11/2021
-                    var sample = $('#tenPercentMinusActual').val();
-                    //if ($('#ActualDelivered').val().replace(/,/g, '') > $('#tenPercentMinusActualCopy').val()) {
-
-                    //    alert("Error Maximum 10 Percent Allowable Exceed!");
-                    //    ($('#ActualDelivered').val(""));
-                    //}
-
-                    if (parseFloat($("#tenPercentComputation").val()) == parseFloat($("#ActualDelivered").val())) {
-                        //alert("Data is the same");
                     }
                     else {
 
-                        if (parseFloat($("#tenPercentComputation").val()) > parseFloat($("#ActualDelivered").val())) {
+
+                    var sample = $('#tenPercentMinusActual').val();
+       
+
+                    if (parseFloat($("#tenPercentComputation").val()) == parseFloat($("#ActualDelivered").val())) {
+                    //alert("Data is the same");
+                    }
+                    else
+
+                    {
+
+                    //buje<a href="../QAPoSummaryCheck/ReceivedRawMaterial.aspx">../QAPoSummaryCheck/ReceivedRawMaterial.aspx</a>
+                    if (parseFloat($("#num1").val()) == parseFloat($("#ActualNeeded").val())) {
+
+
+                    //Start
+
+                    if (parseFloat($("#tenPercentComputation").val()) > parseFloat($("#ActualDelivered").val())) {
+                    $(".error").css("display", "block").css("color", "red");
+                    //$("#submit").prop('disabled', true);
+                    //alert("Wala pa sa 10 Percent");
+                    }
+                    else {
+                    if ((parseFloat($("#tenPercentComputation").val()) == 0)) {
+                    //alert("Expected Delivery is Required! ");
+                    //swal("Good job!", "You clicked the button!", "success");
+                    }
+                    else {
+                    $(".error").css("display", "none");
+                    //$("#submit").prop('disabled', false);
+                    alert("Maximum 10 Percent Allowable Exceed!!");
+                    ($('#tare_weight').val(""));
+                    }
+
+                    }
+
+
+
+                    //END
+                    }
+
+
+                    else {
+
+
+                        if (parseFloat($("#tenPercentComputationChange").val()) > parseFloat($("#ActualDelivered").val())) {
                             $(".error").css("display", "block").css("color", "red");
                             //$("#submit").prop('disabled', true);
                             //alert("Wala pa sa 10 Percent");
                         }
                         else {
-                            if ((parseFloat($("#tenPercentComputation").val()) == 0)) {
-
+                            if ((parseFloat($("#tenPercentComputationChange").val()) == 0)) {
+                                //alert("Expected Delivery is Required! ");
+                                //swal("Good job!", "You clicked the button!", "success");
                             }
                             else {
-                                $(".error").css("display", "none");
-                                //$("#submit").prop('disabled', false);
-                                alert("Maximum 10 Percent Allowable Exceed!!");
-                                ($('#tare_weight').val(""));
+
+                                if (parseFloat($("#tenPercentComputationChange").val()) == parseFloat($("#ActualDelivered").val())) {
+                                    //alert("Data is the same");
+                                }
+                                else {
+
+                                    $(".error").css("display", "none");
+                                    //$("#submit").prop('disabled', false);
+                                    alert("Maximum 10 Percent Allowable Exceed !!");
+                                    ($('#tare_weight').val(""));
+                                }
+
                             }
                         }
+
+                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        //if (parseFloat($("#tenPercentComputation").val()) > parseFloat($("#ActualDelivered").val()))
+                        //{
+                        //    $(".error").css("display", "block").css("color", "red");
+                        //    //$("#submit").prop('disabled', true);
+                        //    //alert("Wala pa sa 10 Percent");
+                        //}
+                        //else
+                        //{
+                        //    if ((parseFloat($("#tenPercentComputation").val()) == 0))
+                        //    {
+
+                        //    }
+                        //    else {
+                        //        $(".error").css("display", "none");
+                        //        //$("#submit").prop('disabled', false);
+                        //        alert("Maximum 10 Percent Allowable Exceed!!");
+                        //        ($('#tare_weight').val(""));
+                        //    }
+                        //}
+
+
                     }
 
 
@@ -2437,8 +2517,9 @@
 
 
         //ACTUAL DELIVERED COMPUTATIONS USING JQUERY
+                        //$("#ActualDelivered").mouseout(function () {
 
-        $("#ActualDelivered").mouseout(function () {
+        $("#tare_weight").mouseout(function () {
             if ($(this).val()) {
 
                 if ($('#ActualNeeded').val() < $('#ActualDelivered').val()) {
@@ -2458,6 +2539,15 @@
                     //return false;
                     //break;
                 }
+
+
+
+
+
+
+
+
+
                 var ActualDelivery = $('#ActualDelivered').val().replace(/,/g, '');
                 var tenPercentequalone = $('#tenPercentComputation').val();
                 if (ActualDelivery < 10)
@@ -2472,23 +2562,70 @@
                         //alert("Data is the same");
                     }
                     else {
-                        
 
-                        if (parseFloat($("#tenPercentComputation").val()) > parseFloat($("#ActualDelivered").val())) {
-                            $(".error").css("display", "block").css("color", "red");
-                            //$("#submit").prop('disabled', true);
-                            //alert("Wala pa sa 10 Percent");
-                        }
-                        else {
-                            if ((parseFloat($("#tenPercentComputation").val()) == 0)) {
-                                //alert("Expected Delivery is Required! ");
-                                //swal("Good job!", "You clicked the button!", "success");
+                        if (parseFloat($("#num1").val()) == parseFloat($("#ActualNeeded").val())) {
+
+
+                            //Start
+
+                            if (parseFloat($("#tenPercentComputation").val()) > parseFloat($("#ActualDelivered").val())) {
+                                $(".error").css("display", "block").css("color", "red");
+                                //$("#submit").prop('disabled', true);
+                                //alert("Wala pa sa 10 Percent");
                             }
                             else {
-                            $(".error").css("display", "none");
-                            //$("#submit").prop('disabled', false);
-                            alert("Maximum 10 Percent Allowable Exceed!!");
-                                ($('#tare_weight').val(""));
+                                if ((parseFloat($("#tenPercentComputation").val()) == 0)) {
+                                    //alert("Expected Delivery is Required! ");
+                                    //swal("Good job!", "You clicked the button!", "success");
+                                }
+                                else {
+                                    $(".error").css("display", "none");
+                                    //$("#submit").prop('disabled', false);
+                                    alert("Maximum 10 Percent Allowable Exceed!!");
+                                    ($('#tare_weight').val(""));
+                                }
+
+                            }
+
+
+
+                            //END
+                        }
+
+
+                        else {
+
+
+                            if (parseFloat($("#tenPercentComputationChange").val()) > parseFloat($("#ActualDelivered").val()))
+                            {
+                                $(".error").css("display", "block").css("color", "red");
+                                //$("#submit").prop('disabled', true);
+                                //alert("Wala pa sa 10 Percent");
+                            }
+                            else {
+                                if ((parseFloat($("#tenPercentComputationChange").val()) == 0))
+                                {
+                                    //alert("Expected Delivery is Required! ");
+                                    //swal("Good job!", "You clicked the button!", "success");
+                                }
+                                else
+                                {
+
+
+                                    if (parseFloat($("#tenPercentComputationChange").val()) == parseFloat($("#ActualDelivered").val())) {
+                                        //alert("Data is the same");
+                                    }
+                                    else {
+
+
+
+                                        $(".error").css("display", "none");
+                                        //$("#submit").prop('disabled', false);
+                                        alert("Maximum 10 Percent Allowable Exceed !!");
+                                        ($('#tare_weight').val(""));
+                                    }
+                                }
+
                                 }
 
                         }
@@ -2498,6 +2635,11 @@
                  }
             }
         });
+
+
+
+
+
 
         //binder
         $("#uom-actual-data").val($('#uom_data').val());
