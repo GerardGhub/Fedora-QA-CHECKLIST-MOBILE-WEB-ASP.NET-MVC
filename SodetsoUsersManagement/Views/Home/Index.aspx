@@ -245,7 +245,7 @@
             var self = $(this);
             var url = $(this).data('url');
             var success = function () {
-                //alert('href="/Home/SignOut"');
+              
                 location.href = "/Home/SignOut";
          
             }

@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Master.Master" Inherits="System.Web.Mvc.ViewPage<SodetsoUsersManagement.Models.EditUserModel>" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-      <%: ViewBag.PageTitle = "Partial Receiving of Micro PO Summarys" %>
+      <%: ViewBag.PageTitle = "Partial Receiving of Micro" %>
 
 </asp:Content>
 
@@ -1135,10 +1135,16 @@
 
                         <div class="box-footer" align="right">
                           
-              
-                        <button type="submit" onclick="myFunction()" class="btn btn-primary">Save</button>
-                        <button type="submit" onclick="myFunctionCancel()" class="btn btn-warning">Cancel</button>
 
+                       <button type="button" class="btn btn-primary save-event" data-dismiss="modal" data-url="#" data-confirmation="Are you sure you want to save the transaction? " data-confirmation-title="QC CheckList">Save</button>
+            
+                  <button type="button" class="btn btn-warning cancel-event" data-dismiss="modal" data-url="#" data-confirmation="Are you sure you want to cancel the transaction? " data-confirmation-title="QC CheckList">Cancel</button>
+            
+
+     <%--                   <button type="submit" onclick="myFunction()" class="btn btn-primary ">Save</button>--%>
+                <%--        <button type="submit" onclick="myFunctionCancel()" class="btn btn-warning">Cancel</button>--%>
+
+                   
                         </div>
                         <% } %>
                         </div>
@@ -1797,6 +1803,90 @@
         }
 
 
+
+    </script>
+    
+    <div id="main_confirmation" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Confirmation</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script>
+        showConfirmation = function (title, message, success, cancel) {
+            title = title ? title : 'Are you sure?';
+            var modal = $("#main_confirmation");
+            modal.find(".modal-title").html(title).end()
+                .find(".modal-body").html(message).end()
+                .modal({ backdrop: 'static', keyboard: false })
+                .on('hidden.bs.modal', function () {
+                    modal.unbind();
+                });
+            if (success) {
+                modal.one('click', '.modal-footer .btn-primary', success);
+            }
+            if (cancel) {
+                modal.one('click', '.modal-header .close, .modal-footer .btn-default', cancel);
+            }
+        };
+
+        $(document).on("click", ".save-event, .save-all-event", function (event) {
+            event.preventDefault();
+            var self = $(this);
+            var url = $(this).data('url');
+            var success = function () {
+                //alert('window.location.href=url');
+                myFunction();
+            }
+            var cancel = function () {
+                //alert('Cancel');
+            };
+            if (self.data('confirmation')) {
+                var title = self.data('confirmation-title') ? self.data('confirmation-title') : undefined;
+                var message = self.data('confirmation');
+                showConfirmation(title, message, success, cancel);
+            } else {
+                success();
+            }
+        });
+
+
+
+        $(document).on("click", ".cancel-event, .cancell-all-event", function (event) {
+            event.preventDefault();
+            var self = $(this);
+            var url = $(this).data('url');
+            var success = function () {
+                //alert('window.location.href=url');
+                ($('#QaApprovalRemarks').val(""));
+                //<a href="/Home/Index">
+                location.href = "/Home/Index";
+                
+            }
+            var cancel = function () {
+                //alert('Cancel');
+                ($('#QaApprovalRemarks').val(""));
+            };
+            if (self.data('confirmation')) {
+                var title = self.data('confirmation-title') ? self.data('confirmation-title') : undefined;
+                var message = self.data('confirmation');
+                showConfirmation(title, message, success, cancel);
+            } else {
+                success();
+            }
+        });
 
     </script>
     <script src="../../Scripts/easy-number-separator.js"></script>
