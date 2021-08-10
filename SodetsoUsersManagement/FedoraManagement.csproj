@@ -801,7 +801,6 @@
     <Content Include="Views\Home\Login.aspx" />
     <Content Include="Views\MacroMaterials\EditMacroRawMaterials.aspx" />
     <Content Include="Views\MacroMaterials\MacroRawMaterials.aspx" />
-    <Content Include="Views\MacroMaterials\thumbs-up.jpg" />
     <Content Include="Views\PoSummary\EditPoSummary.aspx" />
     <Content Include="Views\PoSummary\PoLists.ascx" />
     <Content Include="Views\PoSummary\PoSummaryList.aspx" />

@@ -183,6 +183,26 @@
 
 
 
+<div id="main_confirmation" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Confirmation</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 
     <!-- top row -->
     <div class="row">
@@ -201,5 +221,46 @@
             display:none;
         }
     </style>
+
+    <script>
+        showConfirmation = function (title, message, success, cancel) {
+            title = title ? title : 'Are you sure?';
+            var modal = $("#main_confirmation");
+            modal.find(".modal-title").html(title).end()
+                .find(".modal-body").html(message).end()
+                .modal({ backdrop: 'static', keyboard: false })
+                .on('hidden.bs.modal', function () {
+                    modal.unbind();
+                });
+            if (success) {
+                modal.one('click', '.modal-footer .btn-primary', success);
+            }
+            if (cancel) {
+                modal.one('click', '.modal-header .close, .modal-footer .btn-default', cancel);
+            }
+        };
+
+        $(document).on("click", ".delete-event, .delete-all-event", function (event) {
+            event.preventDefault();
+            var self = $(this);
+            var url = $(this).data('url');
+            var success = function () {
+                //alert('href="/Home/SignOut"');
+                location.href = "/Home/SignOut";
+         
+            }
+            var cancel = function () {
+                //alert('Cancel');
+            };
+            if (self.data('confirmation')) {
+                var title = self.data('confirmation-title') ? self.data('confirmation-title') : undefined;
+                var message = self.data('confirmation');
+                showConfirmation(title, message, success, cancel);
+            } else {
+                success();
+            }
+        });
+
+    </script>
 
 </asp:Content>

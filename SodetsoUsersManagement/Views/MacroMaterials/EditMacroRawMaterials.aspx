@@ -249,10 +249,10 @@
                                           
                     <%: Html.ValidationMessageFor(model => model.stacking_level, "", new { @class = "text-danger" }) %>
 
-                    <input type="text" id="tenPercentComputation" value="0" class="form-control"/>    
+                    <input type="hidden" id="tenPercentComputation" value="0" class="form-control"/>    
 
 
-                          <input type="text" id="tenPercentComputationChange" value="0" class="form-control"/>  
+                          <input type="hidden" id="tenPercentComputationChange" value="0" class="form-control"/>  
 
                     </td>
           

@@ -43,9 +43,9 @@
   
 
        <%-- <script src="../../Content/sweetalert/jsfile/sweetalertJsFile.js"></script>--%>
-    <script src="../../Content/sweetalert/jsfile/sweetalert.js"></script>
+<%--    <script src="../../Content/sweetalert/jsfile/sweetalert.js"></script>
 
-     <link href="../../Content/sweetalert/sweet-alert.css" rel="stylesheet" />
+     <link href="../../Content/sweetalert/sweet-alert.css" rel="stylesheet" />--%>
 
     <style>
         .true{

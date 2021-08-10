@@ -62,12 +62,17 @@
             </ul>
         </li>--%>
         <li>
-            <a href="/Home/SignOut">
+            <a type="button" class="btn btn-default delete-event"  data-dismiss="modal" data-url="#" data-confirmation="Are you sure you want to logout?" data-confirmation-title="QC CheckList">
+       <%--     <a href="/Home/SignOut">--%>
                 <i class="fa fa-power-off"></i><span>Logout</span>
+
             </a>
         </li>
        
     </ul>
+
+
+      
 
 
 </section>
