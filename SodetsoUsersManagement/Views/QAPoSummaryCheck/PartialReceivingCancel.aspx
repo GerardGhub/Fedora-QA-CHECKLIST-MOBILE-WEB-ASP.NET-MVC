@@ -151,6 +151,8 @@
                                                         <option value="CHANGE OF QUANTITY ">CHANGE OF QUANTITY </option>
                                                         <option value="OUT OF STOCK">OUT OF STOCK</option>
                                                                 <option value="RE-PR">RE-PR</option>
+                                      <option value="ENCODING ERROR">ENCODING ERROR</option>
+                                      <option value="SYSTEM ERROR">SYSTEM ERROR</option>
                                                                        <option value="OTHERS">OTHERS</option>
 
                                                                         </select>

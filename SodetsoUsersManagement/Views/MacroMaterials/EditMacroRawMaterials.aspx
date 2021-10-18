@@ -1931,13 +1931,13 @@
 
                     <div class="box-footer" align="right">
                           
-                          <button type="button" class="btn btn-primary save-event" data-dismiss="modal" data-url="#" data-confirmation="Are you sure you want to save the transaction? " data-confirmation-title="QC CheckList">Save</button>
+     <%--                     <button type="button" class="btn btn-primary save-event" data-dismiss="modal" data-url="#" data-confirmation="Are you sure you want to save the transaction? " data-confirmation-title="QC CheckList">Save</button>
             
                   <button type="button" class="btn btn-warning cancel-event" data-dismiss="modal" data-url="#" data-confirmation="Are you sure you want to cancel the transaction? " data-confirmation-title="QC CheckList">Cancel</button>
-            
+            --%>
 
-              <%--      <button type="submit" onclick="myFunction()" class="btn btn-primary">Save</button>
-                    <button type="submit" onclick="myFunctionCancel()" class="btn btn-warning">Cancel</button>--%>
+                    <button type="submit" onclick="myFunction()" class="btn btn-primary">Save</button>
+                    <button type="submit" onclick="myFunctionCancel()" class="btn btn-warning">Cancel</button>
 
                     </div>
                     <% } %>
@@ -2872,5 +2872,24 @@
                     border-radius:20px;
                 }
         </style>
+
+    
+
+    <script src="/Scripts/lib_UI_jquery_js_jquery-ui-1.9.2.custom.min.js"></script>
+
+    <!-- jQuery 2.0.2 -->
+    <script src="/Content/js/jquery.min.js"></script>
+
+    <!-- jQuery UI 1.10.3 -->
+    <script src="/Content/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+
+
+
+
+    <script src="/Scripts/jquery.validate.js"></script>
+    <script src="/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    <script src="/Scripts/jquery-ui.js"></script>
+
 
 </asp:Content>

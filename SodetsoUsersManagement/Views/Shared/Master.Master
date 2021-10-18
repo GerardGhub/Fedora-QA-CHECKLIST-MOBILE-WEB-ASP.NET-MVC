@@ -12,11 +12,7 @@
 
    <%-- metada--%>
     
-    <meta property="og:title" content="Social Buttons for Bootstrap" />
-    <meta property="og:description" content="A beautiful replacement for JavaScript's 'alert' for Bootstrap" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://lipis.github.io/bootstrap-sweetalert/" />
-    <meta property="og:image" content="http://lipis.github.io/bootstrap-social/assets/bootstrap-sweetalert.png" />
+
 
 
 
@@ -33,57 +29,56 @@
     <link href="../../Content/css/mynewstyle.css" rel="stylesheet" />
     <!-- for my calculations onlyyy  -->
 
-    <script src="/Scripts/library-jquery.min.js"></script>
+   <script src="/Scripts/library-jquery.min.js"></script>
     
     <link href="/Content/css/jquery-ui.css" rel="stylesheet" />
-
-
 
    
   
 
-       <%-- <script src="../../Content/sweetalert/jsfile/sweetalertJsFile.js"></script>--%>
-<%--    <script src="../../Content/sweetalert/jsfile/sweetalert.js"></script>
+                <%-- <script src="../../Content/sweetalert/jsfile/sweetalertJsFile.js"></script>--%>
+                <%--    <script src="../../Content/sweetalert/jsfile/sweetalert.js"></script>
 
-     <link href="../../Content/sweetalert/sweet-alert.css" rel="stylesheet" />--%>
+                <link href="../../Content/sweetalert/sweet-alert.css" rel="stylesheet" />--%>
 
-    <style>
-        .true{
-            display:none;
-        }
-        /*.Senior.Automation{
-            display:none;
-        }*/
+                <style>
+                .true{
+                display:none;
+                }
+                /*.Senior.Automation{
+                display:none;
+                }*/
 
    
-        .QAStaff{
-                    display:none;
-        }
+                .QAStaff{
+                display:none;
+                }
 
-               #QAStaff{
-                    display:none;
-        }
-
-
-        button {
- display: none;   
-}
-
-        .requiredfilled{
-             background: yellow;
-    /*border: 1px solid #CD0A0A;*/
-        }
-
-        input.input-validation-error,
-textarea.input-validation-error,
-select.input-validation-error
-{
-    background: yellow;
-    border: 1px solid #CD0A0A;
+                #QAStaff{
+                display:none;
+                }
 
 
+                button {
+                display: none;   
+                }
 
-}
+                .requiredfilled{
+                background: yellow;
+                /*border: 1px solid #CD0A0A;*/
+                }
+
+                input.input-validation-error,
+                textarea.input-validation-error,
+                select.input-validation-error
+                {
+                background: yellow;
+                border: 1px solid #CD0A0A;
+
+
+
+                }
+
         /*td, th {
             margin:0;
             border:3px solid grey; 
@@ -159,84 +154,7 @@ select.input-validation-error
         <!-- /.right-side -->
     </div>
 
-    <script src="/Scripts/lib_UI_jquery_js_jquery-ui-1.9.2.custom.min.js"></script>
-
-    <!-- jQuery 2.0.2 -->
-    <script src="/Content/js/jquery.min.js"></script>
-
-    <!-- jQuery UI 1.10.3 -->
-    <script src="/Content/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
-    <!-- Bootstrap -->
-    <script src="/Content/js/bootstrap.min.js" type="text/javascript"></script>
-    <!-- AdminLTE App -->
-    <script src="/Content/js/AdminLTE/app.js" type="text/javascript"></script>
-    <!-- validate form fields -->
-    <script src="/Scripts/jquery.validate.js"></script>
-    <script src="/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <!-- DATA TABES SCRIPT -->
-    <script src="/Content/js/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
-    <script src="/Content/js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
-   
     
-
-
-    <script src="/Scripts/jquery-ui.js"></script>
-    <!-- here muna -->
-
-    <!-- page script -->
-    <script type="text/javascript">
-        $(function () {
-            $("#example1").dataTable();
-
-            //$("#example1").dataTable({
-
-
-
-
-            //});
-
-            $('#example2').dataTable({
-                "bPaginate": true,
-                "bLengthChange": false,
-                "bFilter": false,
-                "bSort": true,
-                "bInfo": true,
-                "bAutoWidth": false
-            });
-        });
-
-
-
-
-
-        ///2
-
-        $(document).ready(function () {
-
-            $("btn-save").click(function () {
-                var remarks = $('#remarks').val();
-                if (remarks.length == 0) {
-                    $('remarks').next('div.red').remove();
-                    $('remarks').after('<div class="red">remarks is Required');
-                    return false;
-                } else {
-                    $('#remarks').next('div.red').remove();
-                    return true;
-                }
-            });
-
-
-
-        });
-
-
-        //
-
-
-
-
-
-    </script>
 
 <%--     <script>
 
@@ -266,3 +184,77 @@ select.input-validation-error
 
 </body>
 </html>
+
+
+    <!-- Bootstrap -->
+    <script src="/Content/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- AdminLTE App -->
+    <script src="/Content/js/AdminLTE/app.js" type="text/javascript"></script>
+    <!-- validate form fields -->
+
+
+
+
+    <!-- DATA TABES SCRIPT -->
+    <script src="/Content/js/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="/Content/js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+   
+    
+
+
+    <!-- here muna -->
+
+    <!-- page script -->
+    <script type="text/javascript">
+        $(function () {
+            $("#example1").dataTable();
+
+            //$("#example1").dataTable({
+
+
+             //$("#example1").dataTable({
+
+            //});
+
+            //$('#example2').dataTable({
+            //    "bPaginate": true,
+            //    "bLengthChange": false,
+            //    "bFilter": false,
+            //    "bSort": true,
+            //    "bInfo": true,
+            //    "bAutoWidth": false
+            //});
+        });
+
+
+
+
+
+        ///2
+        
+        $(document).ready(function () {
+
+            $("btn-save").click(function () {
+                var remarks = $('#remarks').val();
+                if (remarks.length == 0) {
+                    $('remarks').next('div.red').remove();
+                    $('remarks').after('<div class="red">remarks is Required');
+                    return false;
+                } else {
+                    $('#remarks').next('div.red').remove();
+                    return true;
+                }
+            });
+
+
+
+        });
+
+
+        //
+
+
+
+
+
+    </script>

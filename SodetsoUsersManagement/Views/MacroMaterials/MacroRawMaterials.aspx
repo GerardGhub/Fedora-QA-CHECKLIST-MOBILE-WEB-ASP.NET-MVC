@@ -27,7 +27,7 @@
 
                 <!-- /.box-header -->
                 <div class="box-body table-responsive">
-                    <table id="example1" class="table table-bordered table-hover" >
+                    <table id="example1" class="table table-bordered table-hover ">
                         <thead>
                             <tr>
                                 <th>Po&nbsp;No.</th>              
@@ -36,10 +36,9 @@
                                 <th>Supplier</th>
                                 <th>UOM</th>
                                 <th>Qty.&nbsp;Ordered</th>
-                                <th class="<%: Session["Position"] %>">Actual.&nbsp;Delivered</th>
+                  
                                 <th>Actual.&nbsp;Good</th>
-                                <th class="<%: Session["Position"] %>">Actual.&nbsp;Reject</th>
-                                <th class="<%: Session["Position"] %>">Qty.&nbsp;Remaining</th>
+                           
                                 <th>Actual.&nbsp;Remaining</th>
                                 <th class="<%: Session["Position"] %>" style="text-align:center">Rejection</th>
                                 <th class="<%: Session["Position"] %>">Status</th>
@@ -63,10 +62,9 @@
                                 <td><%: Html.DisplayFor(m => item.vendor_name) %></td>
                                 <td><%: Html.DisplayFor(m => item.qty_uom) %></td>
                                 <td id="agent_commission_model"><b><%: Html.DisplayFor(m => item.qty_ordered) %></b></td>
-                                <td id="agent_commission_model" class="<%: Session["Position"] %>"><%: Html.DisplayFor(m => item.qty_delivered) %></td>
+                   
                                 <td id="agent_commission_model"><b><%: Html.DisplayFor(m => item.qty_good) %></b></td>
-                                <td class="<%: Session["Position"] %>"><%: Html.DisplayFor(m => item.qty_void) %></td>
-                                <td class="<%: Session["Position"] %>"><%: Html.DisplayFor(m => item.qty_waiting) %></td>
+                         
                                 <td id="agent_commission_model"><b><%: Html.DisplayFor(m => item.qty_remarks) %></b></td>
                                                      
                      <td class="<%: Session["Position"] %>" style="text-align:center" <%--class="<%: Session["Position"] %>"--%>>
@@ -432,4 +430,7 @@
             display:none;
         }
     </style>   
+
+              
+
 </asp:Content>
