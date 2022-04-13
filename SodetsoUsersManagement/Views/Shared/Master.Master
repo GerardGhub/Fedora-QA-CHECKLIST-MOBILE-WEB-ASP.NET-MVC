@@ -58,6 +58,12 @@
                 display:none;
                 }
 
+                .alak27{
+             display:block;
+                }
+
+         
+
 
                 button {
                 display: none;   

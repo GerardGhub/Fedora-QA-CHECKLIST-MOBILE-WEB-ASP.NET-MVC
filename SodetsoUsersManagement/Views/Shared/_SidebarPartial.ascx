@@ -33,34 +33,7 @@
                 <li><a href="/UsersManagement/ArchivedUsers"><i class="fa fa-angle-double-right"></i>Archived Users <%--<b style="background-color:red; color:white; border-radius:20px;">&nbsp;<%:Model.ArchivedUsers %>&nbsp;</b--%>></a></li>
             </ul>
         </li>
-<%--           <li class="treeview, <%: Session["Position"] %>">
-            <a href="#">
-                <i class="fa fa-tags"></i>
-                <span>PO Summary CheckList</span>
-                <i class="fa fa-angle-left pull-right"></i>
-            </a>
-            <ul class="treeview-menu">
-                <li><a href="/UsersManagement/AddUser"><i class="fa fa-angle-double-right"></i>Add User</a></li>
-                <li><a href="/UsersManagement/UsersList"><i class="fa fa-angle-double-right"></i>Users List</a></li>
-                <li><a href="/UsersManagement/ActiveUsers"><i class="fa fa-angle-double-right"></i>Active Users</a></li>
-                <li><a href="/UsersManagement/InactiveUsers"><i class="fa fa-angle-double-right"></i>Inactive Users</a></li>
-                <li><a href="/UsersManagement/ArchivedUsers"><i class="fa fa-angle-double-right"></i>Archived Users</a></li>
-            </ul>
-        </li>
-        <li class="treeview, <%: Session["Position"] %>">
-            <a href="#">
-                <i class="fa fa-truck"></i>
-                <span>Supplier Evaluations</span>
-                <i class="fa fa-angle-left pull-right"></i>
-            </a>
-            <ul class="treeview-menu">
-                <li><a href="/UsersManagement/AddUser"><i class="fa fa-angle-double-right"></i>Add User</a></li>
-                <li><a href="/UsersManagement/UsersList"><i class="fa fa-angle-double-right"></i>Users List</a></li>
-                <li><a href="/UsersManagement/ActiveUsers"><i class="fa fa-angle-double-right"></i>Active Users</a></li>
-                <li><a href="/UsersManagement/InactiveUsers"><i class="fa fa-angle-double-right"></i>Inactive Users</a></li>
-                <li><a href="/UsersManagement/ArchivedUsers"><i class="fa fa-angle-double-right"></i>Archived Users</a></li>
-            </ul>
-        </li>--%>
+
         <li>
             <a type="button" class="btn btn-default delete-event"  data-dismiss="modal" data-url="#" data-confirmation="Are you sure you want to logout?" data-confirmation-title="QC CheckList">
      

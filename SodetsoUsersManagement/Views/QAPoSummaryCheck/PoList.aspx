@@ -4,6 +4,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
                                 <%: ViewBag.PageTitle = "Approved PO Summary CheckList" %>
+  
                                 </asp:Content>
 
                                 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -35,17 +36,18 @@
                                 <th>Description</th>
                                 <th>Supplier</th>
                                 <th>UOM</th>
+                                <th>Unit&nbsp;Price</th>
                                 <th>Qty.&nbsp;Ordered</th>
-                               <%-- <th class="<%: Session["Position"] %>">Actual.&nbsp;Delivered</th>--%>
+                   
                                 <th>Actual.&nbsp;Good</th>
-                      <%--          <th class="<%: Session["Position"] %>">Actual.&nbsp;Reject</th>--%>
-                      <%--          <th class="<%: Session["Position"] %>">Qty.&nbsp;Remaining</th>--%>
+      
                                 <th>Actual.&nbsp;Remaining</th>
+
                                
                                 <th class="<%: Session["Position"] %>">Status</th>
                                 <th style="text-align:center">Edit</th>
-                                <th id="<%: Session["Position"] %>" style="text-align:center">Cancel</th>
-           <%--                     <th class="<%: Session["Position"] %>" style="display:none">Dispose</th>--%>
+                                <th class="<%: Session["Position"] %> alak<%: Session["UserID"] %>" style="text-align:center">Cancel</th>
+           
                            </tr>
                             </thead>
                             <tbody>
@@ -61,6 +63,7 @@
                                 <td class=><%: Html.DisplayFor(m => item.item_description) %></td>
                                 <td><%: Html.DisplayFor(m => item.vendor_name) %></td>
                                 <td><%: Html.DisplayFor(m => item.qty_uom) %></td>
+                                     <td><%: Html.DisplayFor(m => item.unit_price) %></td>
                                 <td id="agent_commission_model"><b><%: Html.DisplayFor(m => item.qty_ordered) %></b></td>
                                <%-- <td class="<%: Session["Position"] %>"><%: Html.DisplayFor(m => item.qty_delivered) %></td>--%>
                                 <td id="agent_commission_model"><b><%: Html.DisplayFor(m => item.qty_good) %></b></td>
@@ -143,35 +146,7 @@
                                     
                              </td>
                             
-                                 
-                <%--                <td class="<%: Session["Position"] %> id="<%: Session["Position"] %>"">
-                                    <button class="btn btn-xs btn-danger" type="text" data-toggle="modal" data-target="#RemoveUser<%: Html.DisplayFor(m => item.po_sum_id) %>"><i class="fa fa-times fa fa-white"></i></button>
-                                    
-                                    <!-- Remove User Modal -->
-                                        <div class="modal fade" id="RemoveUser<%: Html.DisplayFor(m => item.po_sum_id) %>" tabindex="-1" role="dialog" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                        <h4 class="modal-title"> Remove Raw Materials</h4>
-                                                    </div>
-                                                    <% using (Html.BeginForm("RemoveRawMaterials", null, FormMethod.Post, new { @class = "smart-form client-form", role = "form", id = "smart-form-register"}))
-                                                    { %>
-                                                        <div class="modal-body">
-                                                           Are you sure you want to remove the Raw Material Po Summary <strong><%: Html.DisplayFor(m => item.item_description) %> </strong>?
-                                                           
-                                                            <input type="hidden" class="form-control" name="po_sum_id" value="<%: Html.DisplayFor(m => item.po_sum_id) %>" />
-                                                        </div>
-                                                        <div class="modal-footer clearfix"> 
-                                                             <button type="submit" class="btn btn-primary"> Yes</button>                         
-                                                             <button type="button" class="btn btn-danger" data-dismiss="modal"> Cancel</button> 
-                                                        </div>
-                                                    <% }%>
-                                                </div><!-- /.modal-content -->
-                                            </div><!-- /.modal-dialog -->
-                                        </div>
-                                        <!-- /.Remove User modal -->
-                                </td>--%>
+             
 
 
 
@@ -182,8 +157,7 @@
 
 
 
-
-                                <td id="<%: Session["Position"] %>" style="text-align:center">
+                                <td class="<%: Session["Position"] %> alak<%: Session["UserID"] %>" style="text-align:center">
 
                                 <% if (item.checklist_approval == "Cancel") 
                                 { %>                                    
@@ -294,31 +268,7 @@
                             <% } %>
                         </tbody>
                         <tfoot>
-                     <%--       <tr>
-                                    <th>Po&nbsp;No.</th>
-                                <th>Item&nbsp;Code</th>
-                                <th>Qty.&nbsp;Ordered</th>
-                                <th>Qty.&nbsp;Delivered</th>
-                                <th>Qty.&nbsp;Remaining</th>
-                       <th class="<%: Session["Position"] %>">Status</th>
-                                <th>Edit</th>
-                                        <th class="<%: Session["Position"] %>">Dispose</th>
-                      
-                            </tr>--%>
-                          <%--        <tr>
-                                <th>Po&nbsp;No.</th>
-                                <th>Item&nbsp;Code</th>
-                                <th>Item&nbsp;Description</th>
-                                <th>Supplier</th>
-                                <th>Qty.&nbsp;Ordered</th>
-                                <th>Qty.&nbsp;Delivered</th>
-                                <th>Qty.&nbsp;Remaining</th>
-                                <th>UOM</th>
-                                <th>Rejection</th>
-                                <th class="<%: Session["Position"] %>">Status</th>
-                          
-                                        <th class="<%: Session["Position"] %>">Dispose</th>      <th>Edit</th>
-                            </tr>--%>
+                    
                         </tfoot>
                     </table>
                 </div>

@@ -98,6 +98,7 @@ namespace SodetsoUsersManagement.Services
                         __UsersListModel.qty_good = reader["qty_good"].ToString();
                         __UsersListModel.qty_void = reader["qty_void"].ToString();
                         __UsersListModel.qty_remarks = reader["qty_remarks"].ToString();
+                        __UsersListModel.unit_price = reader["unit_price"].ToString();
 
                         _UsersListModel.Add(__UsersListModel);
                     }
