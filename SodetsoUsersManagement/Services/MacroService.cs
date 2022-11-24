@@ -68,6 +68,7 @@ namespace SodetsoUsersManagement.Services
                         __MacroListModel.qty_good = reader["qty_good"].ToString();
                         __MacroListModel.qty_void = reader["qty_void"].ToString();
                         __MacroListModel.qty_remarks = reader["qty_remarks"].ToString();
+                        __MacroListModel.unit_price = reader["unit_price"].ToString();
 
 
                         //__UsersListModel.DateChecklistCreated = reader["DateChecklistCreated"].ToString(); ncovvv

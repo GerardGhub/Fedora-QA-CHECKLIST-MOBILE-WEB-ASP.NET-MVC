@@ -35,16 +35,17 @@
                                 <th>Description</th>
                                 <th>Supplier</th>
                                 <th>UOM</th>
+                                <th>Unit&nbsp;Price</th>
                                 <th>Qty.&nbsp;Ordered</th>
                   
                                 <th>Actual.&nbsp;Good</th>
                            
                                 <th>Actual.&nbsp;Remaining</th>
-                                <th class="<%: Session["Position"] %>" style="text-align:center">Rejection</th>
-                                <th class="<%: Session["Position"] %>">Status</th>
+                                <th class="<%: Session["Position"] %> displayfalse" style="text-align:center">Rejection</th>
+                                <th class="<%: Session["Position"] %> displayfalse">Status</th>
                                 <th style="text-align:center">Edit</th>
-                                <th style="text-align:center">Cancel</th>
-                                <th class="<%: Session["Position"] %>">Dispose</th>
+                                <th class="<%: Session["Position"] %> alak<%: Session["UserID"] %>" style="text-align:center">Cancel</th>
+                                <th class="<%: Session["Position"] %> displayfalse">Dispose</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -61,13 +62,14 @@
                                 <td class=><%: Html.DisplayFor(m => item.item_description) %></td>
                                 <td><%: Html.DisplayFor(m => item.vendor_name) %></td>
                                 <td><%: Html.DisplayFor(m => item.qty_uom) %></td>
+                                    <td><%: Html.DisplayFor(m => item.unit_price) %></td>
                                 <td id="agent_commission_model"><b><%: Html.DisplayFor(m => item.qty_ordered) %></b></td>
                    
                                 <td id="agent_commission_model"><b><%: Html.DisplayFor(m => item.qty_good) %></b></td>
                          
                                 <td id="agent_commission_model"><b><%: Html.DisplayFor(m => item.qty_remarks) %></b></td>
                                                      
-                     <td class="<%: Session["Position"] %>" style="text-align:center" <%--class="<%: Session["Position"] %>"--%>>
+                     <td class="<%: Session["Position"] %> displayfalse" style="text-align:center" <%--class="<%: Session["Position"] %>"--%>>
                                     <% if (item.checklist_approval == "Rejection") 
                                     { %>                                    
                                         <%--<span class="label label-primary">Active</span>--%>
@@ -133,7 +135,7 @@
                                     <% } %> 
                                 </td>
 
-                                <td class="<%: Session["Position"] %>" style="text-align:center">
+                                <td class="<%: Session["Position"] %> displayfalse" style="text-align:center">
                                     <% if (item.IsArchived == 1) 
                                     { %>                                    
                                         <%--<span class="label label-primary">Active</span>--%>
@@ -206,7 +208,7 @@
                              </td>
                             
                                  
-                                <td class="<%: Session["Position"] %>">
+                                <td class="<%: Session["Position"] %> displayfalse">
                                     <button class="btn btn-xs btn-danger" type="text" data-toggle="modal" data-target="#RemoveUser<%: Html.DisplayFor(m => item.po_sum_id) %>"><i class="fa fa-times fa fa-white"></i></button>
                                     
                                     <!-- Remove User Modal -->
@@ -215,7 +217,7 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                        <h4 class="modal-title"> Remove Raw Materials</h4>
+                                                        <h4 class="modal-title"> Remove Raw Materials!!!</h4>
                                                     </div>
                                                     <% using (Html.BeginForm("RemoveRawMaterials", null, FormMethod.Post, new { @class = "smart-form client-form", role = "form", id = "smart-form-register"}))
                                                     { %>
@@ -245,7 +247,7 @@
 
 
 
-                                   <td style="text-align:center"<%--class="<%: Session["Position"] %>"--%>>
+                                   <td style="text-align:center" class="<%: Session["Position"] %> alak<%: Session["UserID"] %>">
                                     <% if (item.checklist_approval == "Cancel") 
                                     { %>                                    
                                         <%--<span class="label label-primary">Active</span>--%>
@@ -423,9 +425,12 @@
                              </script>
 
                  <style>
-                .Senior.Automation{
+                .displayfalse{
             display:none;
         }
+    /*            .Senior.Automation{
+            display:none;
+        }*/
              .Junior.Developer{
             display:none;
         }

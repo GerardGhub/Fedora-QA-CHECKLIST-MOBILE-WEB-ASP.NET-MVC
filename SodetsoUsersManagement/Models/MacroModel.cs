@@ -616,6 +616,8 @@ namespace SodetsoUsersManagement.Models
         public string qty_remarks { get; set; }
 
         public string cancelled_po_by { get; set; }
+
+        public string unit_price { get; set; }
     }
 
 
