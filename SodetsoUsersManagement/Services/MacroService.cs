@@ -8,6 +8,7 @@ using System.Web;
 
 namespace SodetsoUsersManagement.Services
 {
+
     public class MacroService
     {
         //Db Connection string
