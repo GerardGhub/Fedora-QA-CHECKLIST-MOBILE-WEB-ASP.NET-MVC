@@ -349,11 +349,26 @@
                         </td>
                         </tr>
 
+                                          <tr>
+             
+                        <td>Starts unload</td>
+                        <td>
+
+                  <%: Html.TextBoxFor(model => model.start_load, new { @class = "form-control requiredfilled", @placeholder="Start Unload",@autocomplete="off"}) %>
+                        <%: Html.ValidationMessageFor(model => model.start_load, "", new { @class = "text-danger" }) %>
+           
+                        </td>
 
 
+                        <td>Stop unload</td>
+        
+                        <td>                              
+                            <%: Html.TextBoxFor(model => model.stop_load, new { @class = "form-control requiredfilled", @placeholder="Stop Unload",@autocomplete="off"}) %>
+                        <%: Html.ValidationMessageFor(model => model.stop_load, "", new { @class = "text-danger" }) %>
 
+                        </td>
+                        </tr>
 
-     
                         <tr>
                         <th colspan="3" style="text-align:center;font-size:14px; background-color:#3c8dbc;color:white;">REJECTION INFORMATION'S</th>
                         <th style="text-align:center;font-size:14px; background-color:#3c8dbc;color:white;">  
@@ -1135,11 +1150,6 @@
 
                         <div class="box-footer" align="right">
                           
-
-          <%--             <button type="button" class="btn btn-primary save-event" data-dismiss="modal" data-url="#" data-confirmation="Are you sure you want to save the transaction? " data-confirmation-title="QC CheckList">Save</button>
-            
-                  <button type="button" class="btn btn-warning cancel-event" data-dismiss="modal" data-url="#" data-confirmation="Are you sure you want to cancel the transaction? " data-confirmation-title="QC CheckList">Cancel</button>
-            --%>
 
            <button type="submit" onclick="myFunction()" class="btn btn-primary ">Save</button>
                  <button type="submit" onclick="myFunctionCancel()" class="btn btn-warning">Cancel</button>

@@ -173,6 +173,12 @@ namespace SodetsoUsersManagement.Models
     public class EditUserModel
     {
 
+        [Required]
+        [Display(Name = "Start Load")]
+        public string start_load { get; set; }
+        [Required]
+        [Display(Name ="Stop Load")]
+        public string stop_load { get; set; }
         public string cancel_date { get; set; }
         public string pepe { get; set; }
         public string papa { get; set; }

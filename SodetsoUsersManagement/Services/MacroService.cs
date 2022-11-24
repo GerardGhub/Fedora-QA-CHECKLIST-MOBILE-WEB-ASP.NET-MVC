@@ -257,8 +257,8 @@ namespace SodetsoUsersManagement.Services
 
                 cmd.Parameters.AddWithValue("additional_unloading", entity.additional_unloading);
                 cmd.Parameters.AddWithValue("additional_unloading_remarks", entity.additional_unloading_remarks);
-                //cmd.Parameters.AddWithValue("date_modified_status", entity.date_modified_status);
-                //cmd.Parameters.AddWithValue("@Password", _SystemTools.EncryptPass(entity.Password));
+                cmd.Parameters.AddWithValue("start_load", entity.start_load);
+                cmd.Parameters.AddWithValue("stop_load", entity.stop_load);
                 cmd.Parameters.AddWithValue("@Image", entity.Image);
                 int rs = cmd.ExecuteNonQuery();
 

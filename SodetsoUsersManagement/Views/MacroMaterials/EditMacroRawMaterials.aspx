@@ -434,7 +434,25 @@
 
                     </tr>
 
+ <tr>
+             
+                        <td>Starts unload</td>
+                        <td>
 
+                  <%: Html.TextBoxFor(model => model.start_load, new { @class = "form-control requiredfilled", @placeholder="Start Unload",@autocomplete="off"}) %>
+                        <%: Html.ValidationMessageFor(model => model.start_load, "", new { @class = "text-danger" }) %>
+           
+                        </td>
+
+
+                        <td>Stop unload</td>
+        
+                        <td>                              
+                            <%: Html.TextBoxFor(model => model.stop_load, new { @class = "form-control requiredfilled", @placeholder="Stop Unload",@autocomplete="off"}) %>
+                        <%: Html.ValidationMessageFor(model => model.stop_load, "", new { @class = "text-danger" }) %>
+
+                        </td>
+                        </tr>
 
 
                   

@@ -877,6 +877,10 @@ namespace SodetsoUsersManagement.Services
 
                 cmd.Parameters.AddWithValue("remarksof_reject6", entity.remarksof_reject6);
 
+                cmd.Parameters.AddWithValue("start_load", entity.start_load);
+                cmd.Parameters.AddWithValue("stop_load", entity.stop_load);
+
+
 
                 cmd.Parameters.AddWithValue("@Image", entity.Image);
                 int rs = cmd.ExecuteNonQuery();

@@ -13,6 +13,14 @@ namespace SodetsoUsersManagement.Models
     public class EditMacroModel
     {
 
+        [Required]
+        [Display(Name ="Start Load")]
+        public string start_load { get; set; }
+
+        [Required]
+        [Display(Name ="Stop Load")]
+        public string stop_load { get; set; }
+
 
         [Required]
         [Display(Name = "Plate No")]
